@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+*{
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.nav {
+            overflow: hidden;
+            background-color: #f6f0e0;
+            margin: 0;
+        }
+
+        .sticky {
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+
+        .nav a {
+            padding-left: 45px;
+            padding-top: 5px;
+            float: left;
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        .nav img {
+            padding: o;
+            margin-top: -1.3rem;
+            margin-left: -2.5rem;
+        }
+
+        #dif {
+            padding-left: 0;
+            padding-top: 0;
+            margin: 0;
+        }
+
+body{
+  background-color:#4b4b4b;
+}
+
+header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 99;
+  background-color: #ff4757;
+}
+
+
+
+.box{
+  color:white;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  position: relative;
+}
+
+.cart-count{
+  position: absolute;
+  background-color: #2f3542;
+  top: -5px;
+  right: 0;
+  padding: 3px;
+  height: 20px;
+  width: 20px;
+  line-height:20px ;
+  border-radius: 50%;
+  z-index: 99;
+}
+
+#cart-icon{
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding-top: 10px;
+}
+
+img{
+  width: 100%;
+}
+
+.container{
+  max-width: 1200px;
+  padding: 4rem;
+  margin: auto;
+  width: 100%;
+}
+
+h2.title{
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  color:#ffffff;
+}
+
+.shop-content{
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(220px,auto));
+  gap:1.5rem;
+  justify-content: center;
+  align-content: center;
+}
+
+.product-box{
+  position: relative;
+  background-color: #fff;
+  padding: 10px;
+  box-shadow: 0 1px 4px rgba(40, 37, 37, 0.1);
+  border-radius: 3px;
+}
+
+.pic{
+  overflow: hidden;
+}
+
+.pic:hover img{
+transform: scale(1.5);
+}
+
+.product-img{
+  transition: 0.4s;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+}
+
+.product-title{
+  font-size: 1rem;
+  font-weight: 600;
+  color:#ff6348;
+}
+
+.product-price{
+  font-weight:500 ;
+}
+
+.add-cart{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: #2ed573;
+  color:white;
+  padding: 10px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.add-cart:hover{
+  background-color:rgba(255, 0, 0, 0.786);
+}
+  
+
+.cart{
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 400px;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0 1px 4px rgba(40, 37, 37, 0.1);
+  z-index: 100;
+}
+
+.cart-active{
+  right:0;
+  transition: 0.5s;
+}
+
+.cart-title{
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  padding-bottom:20px ;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.cart-box{
+  display: grid;
+  grid-template-columns: 32% 50% 18%;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  padding-bottom: 10px;
+}
+
+.cart-img{
+  width: 75px;
+  height: 75px;
+  object-fit: cover;
+  border:2px solid  rgba(0,0,0,0.1);
+  padding: 5px;
+}
+.detail-box{
+  display: grid;
+  row-gap: 0.5rem;  
+}
+
+.price-box{
+  display: flex;
+    justify-content: space-between; 
+}
+
+.cart-food-title{
+   font-size: 1rem;
+   text-transform: uppercase;
+   color:#ff6348;
+   font-weight: 500;
+}
+
+.cart-price{
+  font-weight: 500;
+}
+
+.cart-quantity{
+  border:1px solid rgba(0,0,0,0.1);
+  outline:none ;
+  width: 2.4rem;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.cart-remove{
+  font-size: 24px;
+  color:red;
+  cursor: pointer;
+}
+
+.total{
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1.5rem;
+}
+
+.total-title{
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.total-price{
+  margin-left: 0.5rem;
+}
+
+.btn-buy{
+  padding: 12px 20px;
+  background-color:#2f3542;
+  color:#fff;
+  border: none;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+#cart-close{
+  position: absolute;
+  top: 1rem;
+  right: 0.8rem;
+  font-size: 2rem;
+  cursor: pointer;
+}
+.contact {
+            margin: 0px 90px 0px 20px;
+        }
+
+        .footer {
+            background-color: #E4504E;
+            color: #fff;
+            padding: 20px 0;
+            font-size: 14px;
+            display: flex;
+        }
+
+        .footer h3 {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .news {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .footer p {
+            margin-bottom: 10px;
+        }
+
+        .legal_doc a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 10px;
+        }
+
+        .legal_doc a:hover {
+            text-decoration: underline;
+        }
+
+        .right_container {
+            text-align: left;
+            padding-top: 1%;
+            width: 49%;
+            display: inline-block;
+            margin: 0px 90px 0px 20px;
+        }
+
+        .left_container {
+            padding-top: 1%;
+            width: 49%;
+            display: inline-block;
+            margin: 0px 90px 0px 20px;
+        }
+
+        .leftk {
+
+            padding-top: 1%;
+            width: 90%;
+            display: inline-block;
+            margin: 0px 90px 0px 20px;
+        }
+
+        .navFooter {
+            margin: 0px 0px auto auto;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .footpanel1 {
+            background-color: rgb(222, 213, 215);
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.85rem;
+        }
+
+        .footpanel2 {
+            background-color: #E4504E;
+            color: white;
+            height: 300px;
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        .footpanel2 a {
+            color: white;
+        }
+
+        .footpanel2 a:hover {
+            text-decoration: underline;
+        }
+
+
+        ul {
+            margin-top: 20px;
+        }
+
+        ul a {
+            display: block;
+            font-size: 0.85rem;
+            margin-top: 10px;
+            color: #000;
+        }
+
+  </style>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+
+</head>
+<body>
+  <header>
+    <div class="jj">
+      <div class="nav">
+          <p> <a href="#"> Partner with HomeLane </a></p>
+          <p> <a href="#"> Refer and Earn </a></p>
+          <p> <a href="#"> Join Us</a></p>
+          <p> <a href="#"> Cities </a></p>
+          <p> <a href="#" style="float:right;"> Customer support </a></p>
+          <p> <a href="#" style="float:right;"> Visit Us </a></p>
+          <p> <a href="login.html" style="float:right;"> Login/Register </a></p>
+      </div>
+      <div class="nav">
+          <hr>
+
+          <div class="sticky">
+              <p id="dif"> <a href="end sem project (uid).html"><img src="db3331c19d2949859833aa3511e7c00e.png" width="100px" height="100px">
+                  </a></p>
+
+              <p> <a href="p3.html"> Wardrobe </a></p>
+              <p> <a href="bedroom1.html"> Bedroom </a></p>
+              <p> <a href="p2.html"> Living Room </a></p>
+              <p> <a href="projextx.html"> Bathroom </a></p>
+              <p> <a href="color.html">Design Your Vision</a></p>
+              <p> <a href="homeoffice1.html"> Home Office </a></p>
+              <p> <a href="car.html"> Modular Kitchen </a></p>
+              <p> <a href="customer service.html"> Customer Service </a></p>
+              <p> <a href="#" style="padding-bottom:5px;padding-left:50px;"></a> <button onclick="openForm1()"
+                      style="background-color: rgb(238, 8, 8);padding:7px 7px;color:azure;font-family:Arial, Helvetica, sans-serif;border-radius:5px;;border-color: rgb(238, 8, 8);">
+                      Get Free Estimate
+                  </button></a></p>
+          </div>
+      </div>
+
+      <div class="box">
+        <div class="cart-count">0</div>
+        <ion-icon name="cart"  id="cart-icon" ></ion-icon>
+      </div>
+
+      <div class="cart">
+        <div class="cart-title">Cart Items</div>
+        <div class="cart-content">
+<!--
+          <div class="cart-box">
+            <img src="images/97.jpg" class="cart-img">
+            <div class="detail-box">
+              <div class="cart-food-title">Special Dosai</div>
+              <div class="price-box">
+                <div class="cart-price">Rs.72</div>
+                 <div class="cart-amt">Rs.72</div>
+             </div>
+              <input type="number" value="1" class="cart-quantity">
+            </div>
+            <ion-icon name="trash" class="cart-remove"></ion-icon>
+          </div>
+
+          <div class="cart-box">
+            <img src="images/97.jpg" class="cart-img">
+            <div class="detail-box">
+              <div class="cart-food-title">Special Dosai</div>
+              <div class="price-box">
+                <div class="cart-price">Rs.72</div>
+                 <div class="cart-amt">Rs.72</div>
+             </div>
+              <input type="number" value="1" class="cart-quantity">
+            </div>
+            <ion-icon name="trash" class="cart-remove"></ion-icon>
+          </div>
+        -->
+        </div>
+        
+      <div class="total">
+        <div class="total-title">Total</div>
+        <div class="total-price">Rs.0</div>
+      </div>
+
+      <button class="btn-buy">Place Order</button>
+
+      <ion-icon name="close" id="cart-close"></ion-icon>
+
+      </div>
+    </div>
+  </header>
+  <div class="container">
+    <h2 class="title">Make your kitchen better</h2>
+    <div class="shop-content">
+        <div class="product-box">
+
+            <div class="pic"><img src="https://super.homelane.com/Kitchens%20and%20Wardrobes/16812820309300455836f9f1a-HLKT00000834_batch-2-800x600_22-main.jpg" class="product-img"></div>
+            <h2 class="product-title">sky blue L-shape kitchen</h2>
+            <span class="product-price">Rs.399999</span>
+            <ion-icon name="cart" class="add-cart"></ion-icon>
+          </div>
+      
+          <div class="product-box">
+            <div class="pic"><img src="https://super.homelane.com/Kitchens%20and%20Wardrobes/16812816291234e8fcaffc036-HLKT00000833_batch-2-800x600_10-main.jpg" class="product-img"></div>
+            <h2 class="product-title">woody touch U-shape</h2>
+            <span class="product-price">Rs.599999</span>
+            <ion-icon name="cart" class="add-cart"></ion-icon>
+          </div>
+      
+      
+          <div class="product-box">
+            <div class="pic"><img src="https://super.homelane.com/Kitchens%20and%20Wardrobes/1681281111987dd9a4b8fc2ea-HLKT00000831_batch-2-800x600_13-main.jpg" class="product-img"></div>
+            <h2 class="product-title">White Whisper Modular Island Kitchen</h2>
+            <span class="product-price">Rs.999999</span>
+            <ion-icon name="cart" class="add-cart"></ion-icon>
+          </div>
+      
+      
+          <div class="product-box">
+            <div class="pic"><img src="https://super.homelane.com/Kitchens%20and%20Wardrobes/1680690271783e79b9a6d3fa5-HLKT00000821_kitchen-800x600_21-main.jpg" class="product-img"></div>
+            <h2 class="product-title">Brown Sugar Modular Island Kitchen</h2>
+            <span class="product-price">Rs.799850</span>
+            <ion-icon name="cart" class="add-cart"></ion-icon>
+          </div>
+  
+      <div class="product-box">
+        <div class="pic"><img src="https://super.homelane.com/Kitchens%20and%20Wardrobes/1680690096401db3c07edda22-HLKT00000819_kitchen-800x600_15-main.jpg" class="product-img"></div>
+        <h2 class="product-title">redvelvet L-shaped kitchen</h2>
+        <span class="product-price">Rs.899999</span>
+        <ion-icon name="cart" class="add-cart"></ion-icon>
+      </div>
+  
+      <div class="product-box">
+        <div class="pic"><img src="https://super.homelane.com/Kitchens%20and%20Wardrobes/1680690096401db3c07edda22-HLKT00000819_kitchen-800x600_15-main.jpg"product-img"></div>
+        <h2 class="product-title">Green Meadow L-Shaped Modular Kitche</h2>
+        <span class="product-price">Rs.1299999</span>
+        <ion-icon name="cart" class="add-cart"></ion-icon>
+      </div>
+  
+  
+      <div class="product-box">
+        <div class="pic"><img src="https://super.homelane.com/Kitchens%20and%20Wardrobes/16806897271661dbdc795bd0c-HLKT00000815_kitchen-800x600_9-main.jpg" class="product-img"></div>
+        <h2 class="product-title">redvelvet straight line kitchen</h2>
+        <span class="product-price">Rs.1399999</Rs></span>
+        <ion-icon name="cart" class="add-cart"></ion-icon>
+      </div>
+  
+  
+      <div class="product-box">
+        <div class="pic"><img src="https://super.homelane.com/Kitchens%20and%20Wardrobes/1680689796581259849019ce1-HLKT00000816_kitchen-800x600_11-main.jpg" class="product-img"></div>
+        <h2 class="product-title">Raisin Black L-Shaped Modular Kitchen</h2>
+        <span class="product-price">Rs.1199999</span>
+        <ion-icon name="cart" class="add-cart"></ion-icon>
+      </div>
+       
+      <div class="product-box">
+        <div class="pic"><img src="https://super.homelane.com/Kitchens%20and%20Wardrobes/1680689418815bddce5c3e4b0-HLKT00000811_kitchen-800x600_17-main.jpg" class="product-img"></div>
+        <h2 class="product-title">Pure Elegance Kitchen</h2>
+        <span class="product-price">Rs.2099999</span>
+        <ion-icon name="cart" class="add-cart"></ion-icon>
+      </div>
+      <div class="product-box">
+        <div class="pic"><img src="https://super.homelane.com/Kitchens%20and%20Wardrobes/1680689667710d826069eb5f8-HLKT00000814_kitchen-800x600_8-main.jpg" class="product-img"></div>
+        <h2 class="product-title">Dark Vanilla L-Shaped Modular Kitchen</h2>
+        <span class="product-price">Rs.1799999</span>
+        <ion-icon name="cart" class="add-cart"></ion-icon>
+      </div>
+      <div class="product-box">
+        <div class="pic"><img src="https://super.homelane.com/Kitchens%20and%20Wardrobes/1680689667710d826069eb5f8-HLKT00000814_kitchen-800x600_8-main.jpg" class="product-img"></div>
+        <h2 class="product-title">White Whisper Modular Island Kitchen</h2>
+        <span class="product-price">1999999</span>
+        <ion-icon name="cart" class="add-cart"></ion-icon>
+      </div>
+      <div class="product-box">
+        <div class="pic"><img src="https://super.homelane.com/Kitchens%20and%20Wardrobes/1680689088833e296724f7dfc-HLKT00000809_kitchen-800x600_10-main.jpg" class="product-img"></div>
+        <h2 class="product-title">Green Meadow Kitchen</h2>
+        <span class="product-price">Rs.2599999</span>
+        <ion-icon name="cart" class="add-cart"></ion-icon>
+      </div>
+  
+
+    </div>
+  </div>
+  <script>
+    const btnCart=document.querySelector('#cart-icon');
+const cart=document.querySelector('.cart');
+const btnClose=document.querySelector('#cart-close');
+
+btnCart.addEventListener('click',()=>{
+  cart.classList.add('cart-active');
+});
+
+btnClose.addEventListener('click',()=>{
+  cart.classList.remove('cart-active');
+});
+
+document.addEventListener('DOMContentLoaded',loadFood);
+
+function loadFood(){
+  loadContent();
+
+}
+
+function loadContent(){
+  //Remove items
+  let btnRemove=document.querySelectorAll('.cart-remove');
+  btnRemove.forEach((btn)=>{
+    btn.addEventListener('click',removeItem);
+  });
+
+  //Product Item Change Event
+  let qtyElements=document.querySelectorAll('.cart-quantity');
+  qtyElements.forEach((input)=>{
+    input.addEventListener('change',changeQty);
+  });
+
+  //Product Cart
+  
+  let cartBtns=document.querySelectorAll('.add-cart');
+  cartBtns.forEach((btn)=>{
+    btn.addEventListener('click',addCart);
+  });
+
+  updateTotal();
+}
+
+
+//Remove Item
+function removeItem(){
+  if(confirm('Are Your Sure to Remove')){
+    let title=this.parentElement.querySelector('.cart-food-title').innerHTML;
+    itemList=itemList.filter(el=>el.title!=title);
+    this.parentElement.remove();
+    loadContent();
+  }
+}
+
+//Change Quantity
+function changeQty(){
+  if(isNaN(this.value) || this.value<1){
+    this.value=1;
+  }
+  loadContent();
+}
+
+let itemList=[];
+
+//Add Cart
+function addCart(){
+ let food=this.parentElement;
+ let title=food.querySelector('.product-title').innerHTML;
+ let price=food.querySelector('.product-price').innerHTML;
+ let imgSrc=food.querySelector('.product-img').src;
+ //console.log(title,price,imgSrc);
+ 
+ let newProduct={title,price,imgSrc}
+
+ //Check Product already Exist in Cart
+ if(itemList.find((el)=>el.title==newProduct.title)){
+  alert("Product Already added in Cart");
+  return;
+ }else{
+  itemList.push(newProduct);
+ }
+
+
+let newProductElement= createCartProduct(title,price,imgSrc);
+let element=document.createElement('div');
+element.innerHTML=newProductElement;
+let cartBasket=document.querySelector('.cart-content');
+cartBasket.append(element);
+loadContent();
+}
+
+
+function createCartProduct(title,price,imgSrc){
+
+  return `
+  <div class="cart-box">
+  <img src="${imgSrc}" class="cart-img">
+  <div class="detail-box">
+    <div class="cart-food-title">${title}</div>
+    <div class="price-box">
+      <div class="cart-price">${price}</div>
+       <div class="cart-amt">${price}</div>
+   </div>
+    <input type="number" value="1" class="cart-quantity">
+  </div>
+  <ion-icon name="trash" class="cart-remove"></ion-icon>
+</div>
+  `;
+}
+
+function updateTotal()
+{
+  const cartItems=document.querySelectorAll('.cart-box');
+  const totalValue=document.querySelector('.total-price');
+
+  let total=0;
+
+  cartItems.forEach(product=>{
+    let priceElement=product.querySelector('.cart-price');
+    let price=parseFloat(priceElement.innerHTML.replace("Rs.",""));
+    let qty=product.querySelector('.cart-quantity').value;
+    total+=(price*qty);
+    product.querySelector('.cart-amt').innerText="Rs."+(price*qty);
+
+  });
+
+  totalValue.innerHTML='Rs.'+total;
+
+
+  // Add Product Count in Cart Icon
+
+  const cartCount=document.querySelector('.cart-count');
+  let count=itemList.length;
+  cartCount.innerHTML=count;
+
+  if(count==0){
+    cartCount.style.display='none';
+  }else{
+    cartCount.style.display='block';
+  }
+}
+  </script>
+  <div class="footpanel1">
+    <h4> <a href="end sem project (uid).html"> Back to Top</a></h4>
+</div>
+
+<div class="footpanel2">
+    <ul>
+        <b>
+            <p>Get to Know Us</p>
+        </b>
+        <a href="">Patners</a>
+        <a href="">Blog</a>
+        <a href="">About SweetHome</a>
+        <a href="">Investor Relations</a>
+        <a href="">SweetHome Devices</a>
+        <a href="">Our Retails</a>
+    </ul>
+    <ul>
+        <b>
+            <p>Make Money with Us</p>
+        </b>
+        <a href=""> Sell Designs on SweetHome</a>
+        <a href=""> Sell on SweetHome Business
+        </a>
+        <a href=""> Sell on Duronto
+        </a>
+        <a href=""> Become an Affiliate
+        </a>
+        <a href=""> Advertise Your Products on SweetHome
+        </a>
+        <a href=""> Self-Publish with Us
+        </a>
+        <a href=""> Host an SweetHome Franchise
+        </a>
+    </ul>
+    <ul>
+        <b>
+            <p> SweetHome Payment Products
+            </p>
+        </b>
+        <a href=""> SweetHome Business Card
+        </a>
+        <a href=""> Shop with Points
+        </a>
+        <a href=""> Reload Your Balance
+        </a>
+        <a href=""> SweetHome Currency Converter
+        </a>
+    </ul>
+
+    <ul>
+        <b>
+            <p> Let Us Help You
+            </p>
+        </b>
+        <a href=""> SweetHome and COVID-19
+        </a>
+        <a href=""> Your Account
+        </a>
+        <a href=""> Your Orders
+        </a>
+        <a href=""> Shipping Rates & Policies
+        </a>
+        <a href=""> Returns & Replacements
+        </a>
+        <a href=""> Manage Your Content and Devices
+        </a>
+        <a href=""> SweetHome Assistant
+        </a>
+        <a href=""> Help
+        </a>
+    </ul>
+</div>
+
+<hr>
+<footer class="footer" id="footer">
+    <div class="leftk">
+        <div class="left_container">
+            <div class="contact">
+                <h3>Contact Us</h3>
+                <p class="address">
+                    123, XYZ Street,<br>
+                    City - 12345<br>
+                    State, Country
+                </p>
+                <p class="address">
+                    Phone: +1 234 567890<br>
+                    Email: info@SweetHome.com
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="right_container">
+        <div class="newsletter">
+            <h3 class="news">Newsletter</h3>
+            <form action="#" method="POST">
+                <input type="email" name="email" id="email" placeholder="Your Email Address">
+                <button type="submit" class="btn-subscribe">Subscribe</button>
+            </form>
+        </div>
+        <br>
+        <div class="legal_doc">
+            <div class="navFooter">
+                <a href="#">Terms and Conditions</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Help</a>
+            </div>
+        </div>
+        <br>
+        <p class="copywrite">&copy; 2023 SweetHome. All Rights Reserved.</p>
+    </div>
+
+</footer>
+</body>
+</html>

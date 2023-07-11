@@ -1,0 +1,1075 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+    <script>
+        $(document).ready(function () {
+            $('button.btn-outline-success').click(function () {
+                var polaroidDiv = $(this).prev('.polaroid');
+                var productName = polaroidDiv.find('.product-name').text();
+                var imageSrc = polaroidDiv.find('.product-image').attr('src');
+                var data = {
+                    productName: productName,
+                    imageSrc: imageSrc
+                };
+
+                var existingCart = localStorage.getItem('cartItems');
+                var cartItems = existingCart ? JSON.parse(existingCart) : [];
+                cartItems.push(data);
+                localStorage.setItem('cartItems', JSON.stringify(cartItems));
+                alert('Item added to Wishlist!');
+            });
+        });
+    </script>
+
+    <style>
+        .contact {
+            margin: 0px 90px 0px 20px;
+        }
+
+        .footer {
+            background-color: #E4504E;
+            color: #fff;
+            padding: 20px 0;
+            font-size: 14px;
+            display: flex;
+        }
+
+        .footer h3 {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .news {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .footer p {
+            margin-bottom: 10px;
+        }
+
+        .legal_doc a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 10px;
+        }
+
+        .legal_doc a:hover {
+            text-decoration: underline;
+        }
+        .form-popup {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            z-index: 9;
+            background-color: rgba(0, 0, 0, 0.5);
+            /* Added a semi-transparent background */
+        }
+
+        .form-container {
+            max-width: 300px;
+            padding: 20px;
+            background-color: #fff;
+            position: relative;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            /* Added a box shadow */
+        }
+
+        /* Full-width input fields */
+        .form-container input[type=text],
+        .form-container input[type=password] {
+            width: 100%;
+            padding: 15px;
+            margin: 5px 0 22px 0;
+            border: none;
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+
+
+        /* When the inputs get focus, do something */
+        .form-container input[type=text]:focus,
+        .form-container input[type=password]:focus {
+            background-color: #ddd;
+            outline: none;
+        }
+
+        /* Set a style for the submit/login button */
+        .form-container .btn {
+            background-color: #04AA6D;
+            color: white;
+            padding: 16px 20px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            margin-bottom: 10px;
+            opacity: 0.8;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-container .btn:hover {
+            background-color: #048e5e;
+        }
+
+        /* Add a red background color to the cancel button */
+        .form-container .cancel {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: red;
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-container .cancel:hover {
+            background-color: #ff0000;
+        }
+
+        .form-container .cancel::before,
+        .form-container .cancel::after {
+            content: "";
+            position: absolute;
+            height: 12px;
+            width: 2px;
+            background-color: white;
+        }
+
+        .form-container .cancel::before {
+            transform: rotate(45deg);
+        }
+
+        .form-container .cancel::after {
+            transform: rotate(-45deg);
+        }
+
+        .container {
+            display: inline-flex;
+            align-items: center;
+            margin-right: 20px;
+            cursor: pointer;
+        }
+
+        .container input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .checkmark {
+            position: relative;
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #aaa;
+            border-radius: 50%;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .container input:checked~.checkmark {
+            background-color: #2196F3;
+            border-color: #2196F3;
+        }
+
+        .checkmark::after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+
+        .container input:checked~.checkmark::after {
+            display: block;
+        }
+
+        .container .checkmark::after {
+            top: 5px;
+            left: 5px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: white;
+        }
+
+        .right_container {
+            text-align: left;
+            padding-top: 1%;
+            width: 49%;
+            display: inline-block;
+            margin: 0px 90px 0px 20px;
+        }
+
+        .left_container {
+            padding-top: 1%;
+            width: 49%;
+            display: inline-block;
+            margin: 0px 90px 0px 20px;
+        }
+
+        .leftk {
+
+            padding-top: 1%;
+            width: 90%;
+            display: inline-block;
+            margin: 0px 90px 0px 20px;
+        }
+
+        .navFooter {
+            margin: 0px 0px auto auto;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .footpanel1 {
+            background-color: rgb(222, 213, 215);
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.85rem;
+        }
+
+        .footpanel2 {
+            background-color: #E4504E;
+            color: white;
+            height: 300px;
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        .footpanel2 a {
+            color: white;
+        }
+
+        .footpanel2 a:hover {
+            text-decoration: underline;
+        }
+
+
+        ul {
+            margin-top: 20px;
+        }
+
+        ul a {
+            display: block;
+            font-size: 0.85rem;
+            margin-top: 10px;
+            color: #000;
+        }
+
+        .scroll-container {
+            background-color: #ffffff;
+            overflow: auto;
+            white-space: nowrap;
+            padding: 10px;
+        }
+
+        .image-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            /* Adjust the background color and opacity as desired */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .image-container:hover .overlay {
+            opacity: 1;
+        }
+
+        .overlay p {
+            color: white;
+            font-size: 18px;
+            text-align: center;
+        }
+        .nav {
+            overflow: hidden;
+            background-color: #f6f0e0;
+            margin: 0px;
+        }
+
+        .c {
+            background-image: url('https://www.home-designing.com/wp-content/uploads/2014/09/sleek-bedroom-design1.jpeg');
+            width: auto;
+            height: 500px;
+        }
+
+        .nav a {
+            padding-left: 45px;
+            padding-top: 5px;
+            float: left;
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        .nav img {
+            padding: o;
+            margin-top: -1.3rem;
+            margin-left: -2.5rem;
+        }
+
+        #dif {
+            padding-left: 0;
+            padding-top: 0;
+            margin: 0;
+        }
+
+
+        table {
+            margin-left: 400px;
+            background-color: aliceblue;
+            text-align: center;
+            height: 300px;
+            width: 400px;
+        }
+
+        td {
+            padding-left: 10px;
+        }
+
+        @keyframes moveForward {
+            0% {
+                transform: translateX(0);
+            }
+
+            50% {
+                transform: translateX(300px);
+            }
+
+            100% {
+                transform: translateX(300px);
+            }
+        }
+
+        .y {
+            animation: moveForward 2s ease forwards;
+        }
+
+        @keyframes moveBackward {
+            0% {
+                transform: translateX(0);
+            }
+
+            50% {
+                transform: translateX(-300px);
+            }
+
+            100% {
+                transform: translateX(-300px);
+            }
+        }
+
+        .b {
+            animation: moveBackward 2s ease-in-out forwards;
+            animation-fill-mode: forwards;
+            animation-delay: 2s;
+        }
+
+        img.w {
+            height: 100px;
+            width: 200px;
+            padding-top: 10px;
+        }
+
+        div.polaroid {
+            width: 80%;
+            background-color: white;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            margin-bottom: 25px;
+            margin: 0 auto;
+            /* Added to center align the images */
+            position: relative;
+        }
+
+        div.container {
+            text-align: center;
+            padding: 10px 20px;
+        }
+     
+        div.polaroid:hover::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            /* Added semi-transparent black overlay */
+            opacity: 0;
+            /* Initially hidden */
+            transition: opacity 0.3s ease;
+            /* Transition effect for opacity */
+        }
+
+        div.polaroid:hover::before {
+            content: "View Image";
+            /* Added text for hover effect */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            font-weight: bold;
+            font-size: 20px;
+            opacity: 0;
+            /* Initially hidden */
+            transition: opacity 0.3s ease;
+            /* Transition effect for opacity */
+        }
+
+        div.polaroid:hover::after,
+        div.polaroid:hover::before {
+            opacity: 1;
+            /* Show on hover */
+        }
+
+        .content-style {
+            font-size: 18px;
+            font-weight: bold;
+            color: #225577;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav">
+        <p> <a href="#"> Partner with HomeLane </a></p>
+        <p> <a href="#"> Refer and Earn </a></p>
+        <p> <a href="#"> Join Us</a></p>
+        <p> <a href="#"> Cities </a></p>
+        <p style="float:right;"> <a href="#"> Customer support </a></p>
+        <p> <a href="#" style="float:right;"> Visit Us </a></p>
+        <p style="float:right;"> <a href="login.html" > Login/Register </a></p>
+    </div>
+    <div class="nav">
+        <p id="dif"> <a href="end sem project (uid).html"><img src="db3331c19d2949859833aa3511e7c00e.png" width="100px" height="100px">
+        </a></p>
+        <p> <a href="p3.html"> Wardrobe </a></p>
+        <p> <a href="bedroom1.html"> Bedroom </a></p>
+        <p> <a href="p2.html"> Living Room </a></p>
+        <p> <a href="projextx.html"> Bathroom </a></p>
+        <p> <a href="color.html">Design Your Vision</a></p>
+        <p> <a href="homeoffice1.html"> Home Office </a></p>
+        <p> <a href="car.html"> Modular Kitchen </a></p>
+        <p> <a href="customer service.html"> Customer Service </a></p>
+        <p> <a href="#" style="padding-bottom:5px;padding-left:50px;"></a> <button onclick="openForm()"
+                style="background-color: rgb(238, 8, 8);padding:7px 7px;color:azure;font-family:Arial, Helvetica, sans-serif;border-radius:5px;;border-color: rgb(238, 8, 8);">
+                Get Free Estimate
+            </button></a></p>
+    </div>
+    <div class="c" style="font-size:50px;font-weight:bold;color:burlywood;padding-left: 200px;">|Bedroom Designs</div>
+    <div style="background-color:bisque;">
+        <div style="background-color: bisque; padding: 20px;">
+            <p style="text-align: center; font-size: 24px; color: #225577; font-weight: bold;">
+                A bedroom should be a peaceful and restful retreat, designed to promote relaxation and good sleep.
+            </p>
+            <p style="text-align: center; font-size: 18px; color: #444; margin-bottom: 20px;">
+                The color scheme should be calming and soothing, with soft, neutral tones that create a sense of
+                tranquility.
+                The furniture should be comfortable and functional, with a bed as the focal point of the room.
+            </p>
+            <p style="text-align: center; font-size: 18px; color: #666;">
+                Finally, consider adding personal touches such as artwork or photographs to make the space feel like
+                your own.
+            </p>
+        </div>
+
+        <div class="polaroid">
+            <img class="product-image"
+                src="https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco,w_730/at%2Farchive%2F43d4da8ae890ab80e6ffa7490c1fb02dbb05f342"
+                alt="5 Terre" style="width:100%;height:100%">
+            <div class="container">
+                <p><span class="content-style product-name">Bohemian Bliss:</span> Immerse yourself in the
+                    free-spirited charm of this bohemian-inspired bedroom.</p>
+            </div>
+        </div>
+        <button onclick="addToCart(this)" type="button" class="btn btn-outline-success">Add to Wishlist!</button>
+
+
+        <div class="polaroid">
+            <img class="product-image"
+                src="https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco,c_fit,w_730,h_487/at%2Farchive%2F019aab53b8f4384b76bdaa56acd5a67071f249b1"
+                height="200" width="300" alt="Norther Lights" style="width:100%;height:100%">
+            <div class="container">
+                <p><span class="product-name" class="content-style">Earth Elegance:</span> Infuse your bedroom with the
+                    elegance of a forest-inspired design, combining rich earth tones and rustic accents for a timeless
+                    appeal."</p>
+            </div>
+        </div>
+        <button onclick="addToCart(this)" type="button" class="btn btn-outline-success">Add to Wishlist!</button>
+
+        <div class="polaroid">
+            <img class="product-image"
+                src="https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco,c_fit,w_730,h_487/at%2Fhouse%20tours%2Farchive%2FEmilie%20and%20Brook%2F8015ee86af886dce05ad8390566d5da89e27b0ee"
+                height="200" width="300" alt="Northern Lights" style="width:100%;height:100%">
+            <div class="container">
+                <p><span class="product-name" class="content-style">Simplicity and Serenity:</span> " Embrace the essence
+                    of minimalism in
+                    this serene and clutter-free bedroom, where clean lines and a neutral color palette create a
+                    peaceful retreat."</p>
+            </div>
+        </div>
+        <button onclick="addToCart(this)" type="button" class="btn btn-outline-success">Add to Wishlist!</button>
+
+        <div class="polaroid">
+            <img class="product-image"
+                src="https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco,c_fit,w_730,h_487/at%2Fhouse%20tours%2F2020-03%2FHouse%20calls%2F81170571_themooncabin_001"
+                height="200" width="300" style="width:100%;height:100%">
+            <div class="container">
+                <p><span class="product-name" class="content-style">Historican Inspiration</span>" Draw inspiration from
+                    the rich history of
+                    Georgian design in this bedroom, with its nods to the past through antique pieces, vintage artwork,
+                    and traditional patterns."</p>
+            </div>
+        </div>
+        <button onclick="addToCart(this)" type="button" class="btn btn-outline-success">Add to Wishlist!</button>
+
+        <div class="polaroid">
+            <img class="product-image"
+                src="https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco,c_fit,w_730,h_930/at%2Farchive%2F34b379834ca9103fef4e838de964d7326620e2f4"
+                height="200" width="300" alt="5 Terre" style="width:100%;height:100%">
+            <div class="container">
+                <p><span class="product-name" class="content-style">Artistic Reverie:</span>" Surrender to the artistic
+                    ambiance of a Yves
+                    Klein Blue bedroom, where the vivid blue hue sets the stage for creative inspiration and imaginative
+                    dreams."</p>
+            </div>
+        </div>
+        <button onclick="addToCart(this)" type="button" class="btn btn-outline-success">Add to Wishlist!</button>
+
+            class="btn btn-outline-success">Success</button>
+        <div class="polaroid">
+            <img class="product-image"
+                src="https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco,c_fit,w_730,h_487/at%2Fhouse%20tours%2F2019-10%2FDani%20N%2F4U8A4706"
+                height="200" width="300" alt="5 Terre" style="width:100%;height:100%">
+            <div class="container">
+                <p><span class="product-name" class="content-style">Wallpaper Mural:</span>" Turn a humdrum main bedroom
+                    wall into an artful
+                    scene with nothing more than wallpaper. Kristin Laing transformed her Austin bedroom into a lush
+                    garden escape with a wall-to-wall mural that’s pure perfection."</p>
+            </div>
+        </div>
+        <button onclick="addToCart(this)" type="button" class="btn btn-outline-success">Add to Wishlist!</button>
+
+        <div class="polaroid">
+            <img class="product-image"
+                src="https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco,c_fit,w_730,h_487/at%2Fhouse%20tours%20stock%20archive%2F2dc4a586799e1f699058091bf6e5e1cf1007e8d8"
+                height="200" width="300" alt="5 Terre" style="width:100%;height:100%">
+            <div class="container">
+                <p><span class="product-name" class="content-style">DIY a statement wall:</span>"Not a fan of wallpaper? No
+                    problem. Follow
+                    in Dani and Phillip’s footsteps and paint a big, cheery yellow dot mural on your bedroom wall to
+                    brighten up the space as they did in their Hollywood home. Add emphasis by matching your bed and
+                    bedding to the painted mural."</p>
+            </div>
+        </div>
+        <button onclick="addToCart(this)" type="button" class="btn btn-outline-success">Add to Wishlist!</button>
+
+        <div class="polaroid">
+            <img class="product-image"
+                src="https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco,c_fit,w_730,h_487/at%2Fhouse%20tours%2F2019-08%2FLetitia%20G%2F_E5A0590"
+                height="200" width="300" alt="5 Terre" style="width:100%;height:100%">
+            <div class="container">
+                <p><span class="product-name" class="content-style">Add natural finishes:</span>"Raw details, like polished
+                    concrete floors
+                    or unstained wood furnishings, are a design-savvy way to add an organic element to a bedroom. In
+                    this Austin home, the dwellers also added in a vintage rug to lend a hint of warmth to the space."
+                </p>
+            </div>
+        </div>
+        <button onclick="addToCart(this)" type="button" class="btn btn-outline-success">Add to Wishlist!</button>
+
+        <div class="polaroid">
+            <img class="product-image"
+                src="https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco,c_fit,w_730,h_501/project%20prism%2Fcolor%20search%20archive%2Fb250b25065cb29f5b9fbcf09f930bcde69dff7fa"
+                height="200" width="300" alt="5 Terre" style="width:100%;height:100%">
+            <div class="container">
+                <p><span class="product-name" class="content-style">Draw color inspiration from art work.
+                        :</span>"Not sure how to incorporate a unique piece of artwork into your primary bedroom? Let
+                    the hues of the piece serve as the inspiration for the rest of your room’s palette. Use those shared
+                    hues for the bedding, upholstery, and even your window treatments for a cohesive overall look."
+                </p>
+            </div>
+        </div>
+        <button onclick="addToCart(this)" type="button" class="btn btn-outline-success">Add to Wishlist!</button>
+
+        <div class="polaroid">
+            <img class="product-image"
+                src="https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco,c_fit,w_730,h_487/at%2Fhouse%20tours%20stock%20archive%2F8cc6fafcc65a239fedb0dd6bcecbb891c7f6a92c"
+                height="200" width="300" alt="5 Terre" style="width:100%;height:100%">
+            <div class="container">
+                <p><span class="product-name" class="content-style">Employ eye-catching window treatments.:</span>"Let your
+                    windows do all
+                    the talking! Dress up casements with a voluminous pair of drapery panels to create a luxe yet
+                    tailored scene, just as these clever dwellers did in their East London apartment. If you mount
+                    curtains slightly higher and wider than your actual windows, you can make them seem larger and the
+                    room, on the whole, loftier"
+                </p>
+            </div>
+        </div>
+        <button onclick="addToCart(this)" type="button" class="btn btn-outline-success">Add to Wishlist!</button>
+
+        <div class="polaroid">
+            <img class="product-image"
+                src="https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco,c_fit,w_730,h_487/at%2Farchive%2Fed5a7c35d6b881d774ab1233bed20952c688a83b"
+                height="200" width="300" alt="5 Terre" style="width:100%;height:100%">
+            <div class="container">
+                <p><span class="product-name" class="content-style">Add in antiques:</span>"You can always count on a
+                    stunning antique light
+                    fixture, like the crystal chandelier we spotted in Anjoli’s London home, to make a sophisticated
+                    statement in a primary bedroom. No matter the room, always try to add at least one older object into
+                    your design scheme. It will add a sense of history and charm to all of the newer furnishings around
+                    it."
+                </p>
+            </div>
+        </div>
+        <button onclick="addToCart(this)" type="button" class="btn btn-outline-success">Add to Wishlist!</button>
+
+        <div class="polaroid">
+            <img class="product-image"
+                src="https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco,c_fit,w_730,h_974/at%2Farchive%2Fdaf6128652cdcfee557638e365e410e685cbe7d4"
+                height="200" width="300" alt="5 Terre" style="width:100%;height:100%">
+            <div class="container">
+                <p><span class="product-name" class="content-style">Get an over-the-top headboard:</span>"Never
+                    underestimate the impact of a
+                    commanding headboard in a main bedroom. Whether it’s a massive one that ranges from the floor to the
+                    ceiling or a makeshift alternative courtesy of a graphic tapestry, it’s a dramatic touch every
+                    bedroom deserves. Not to mention, you can usually skip out on hanging art over these statement
+                    pieces, since they are usually so striking on their own."
+                </p>
+            </div>
+        </div>
+        <button onclick="addToCart(this)" type="button" class="btn btn-outline-success">Add to Wishlist!</button>
+
+
+
+    </div>
+    <div class="n">
+        <div style="text-align: center; font-size: xx-large;">FREQUENTLY ASKED QUESTIONS</div>
+        <div style="text-align: center;">
+            <h3 style="display: inline-block; border-bottom: 1px solid black; padding-bottom: 5px;">What Are the
+                Services Provided in Living Room Interior Design?</h3>
+            <button onclick="toggleText()" style="background: none; border: none; cursor: pointer;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M6 9l6 6 6-6" />
+                </svg>
+            </button>
+            <div id="hiddenText" style="text-align: center; display: none;">
+                Living room interior design services typically include:
+                <ul style="list-style-type: disc;">
+                    <li>Space planning: This involves creating a layout for the living room that is functional and
+                        aesthetically pleasing.</li>
+                    <li>Colour consultation: A designer can help you choose a colour palette for your living room
+                        that
+                        complements the existing décor and creates the desired mood.</li>
+                    <li>Lighting design: Proper lighting can make a big difference in the look and feel of a living
+                        room. An interior designer can help you choose and install the right lighting fixtures for
+                        your
+                        space.</li>
+                    <li>Furniture selection: A designer can help you choose furniture that is both comfortable and
+                        stylish, and that fits the scale and layout of your living room.</li>
+                    <li>Accessories and decor: An interior designer can help you select decorative items such as
+                        throw
+                        pillows, art, and rugs to complete the look of your living room.</li>
+                    <li>Custom window treatments: A designer can help you choose and install window treatments that
+                        add
+                        privacy, insulation, and style to your living room.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div style="text-align: center;">
+            <h3 style="display: inline-block; border-bottom: 1px solid black; padding-bottom: 5px;">How Do I Select
+                a
+                Living Room Design?</h3>
+            <button onclick="toggleText1()" style="background: none; border: none; cursor: pointer;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M6 9l6 6 6-6" />
+                </svg>
+            </button>
+            <div id="hiddenText1" style="text-align: center; display: none;">
+                To select a living room design, consider the following factors:
+                <ul style="list-style-type: disc;">
+                    <li>Personal style and preferences: Think about your preferred aesthetics, colors, and themes
+                        that
+                        align with your taste and personality.</li>
+                    <li>Functionality: Determine how you plan to use the living room space and ensure the design
+                        accommodates your needs.</li>
+                    <li>Layout and space: Consider the size and layout of your living room to choose furniture and
+                        accessories that fit well and optimize the available space.</li>
+                    <li>Budget: Set a budget for your living room design project and select a design that fits
+                        within
+                        your financial constraints.</li>
+                    <li>Inspiration and research: Look for inspiration in interior design magazines, websites,
+                        social
+                        media platforms, and consult with professionals for expert guidance.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div style="text-align: center;">
+            <h3 style="display: inline-block; border-bottom: 1px solid black; padding-bottom: 5px;">How Long Does It
+                Take to Complete a Living Room Interior Design Project?</h3>
+            <button onclick="toggleText2()" style="background: none; border: none; cursor: pointer;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M6 9l6 6 6-6" />
+                </svg>
+            </button>
+            <div id="hiddenText2" style="text-align: center; display: none;">
+                The time required to complete a living room interior design project can vary depending on several
+                factors, such as:
+                <ul style="list-style-type: disc;">
+                    <li>Scope of the project: The complexity and scale of the design project can impact the
+                        duration. A
+                        complete overhaul will take more time compared to minor updates.</li>
+                    <li>Availability of resources: The availability of materials, furniture, and accessories can
+                        affect
+                        the project timeline. Custom-made items may take longer to procure.</li>
+                    <li>Collaboration and decision-making: The project timeline can be influenced by the client's
+                        responsiveness in providing feedback and making decisions.</li>
+                    <li>Designer's workload: The workload and schedule of the interior designer or design team can
+                        also
+                        impact the project timeline.</li>
+                </ul>
+                It's best to consult with your interior designer to get a more accurate estimate of the time
+                required
+                for your specific project.
+            </div>
+        </div>
+
+        <div style="text-align: center;">
+            <h3 style="display: inline-block; border-bottom: 1px solid black; padding-bottom: 5px;">What is the Cost
+                of
+                Living Room Interior Design?</h3>
+            <button onclick="toggleText3()" style="background: none; border: none; cursor: pointer;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M6 9l6 6 6-6" />
+                </svg>
+            </button>
+            <div id="hiddenText3" style="text-align: center; display: none;">
+                The cost of living room interior design can vary depending on several factors, including:
+                <ul style="list-style-type: disc;">
+                    <li>Size of the room: Larger rooms may require more furniture, accessories, and materials, which
+                        can
+                        increase the overall cost.</li>
+                    <li>Design complexity: Intricate designs or custom-made elements may involve higher costs
+                        compared
+                        to simpler and readily available options.</li>
+                    <li>Choice of materials and finishes: Premium materials and finishes can contribute to a higher
+                        cost, while more budget-friendly alternatives can help reduce expenses.</li>
+                    <li>Additional services: If you require specialized services like electrical work, plumbing, or
+                        structural changes, the cost will be higher.</li>
+                    <li>Location and designer's fees: The location and experience of the interior designer can
+                        influence
+                        the cost of their services.</li>
+                </ul>
+                It's recommended to discuss your budget and requirements with an interior designer to get a
+                personalized
+                cost estimate for your living room interior design project.
+            </div>
+        </div>
+
+        <div style="text-align: center;">
+            <h3 style="display: inline-block; border-bottom: 1px solid black; padding-bottom: 5px;">Can I
+                Incorporate a
+                Home Office in My Living Room Design?</h3>
+            <button onclick="toggleText4()" style="background: none; border: none; cursor: pointer;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M6 9l6 6 6-6" />
+                </svg>
+            </button>
+            <div id="hiddenText4" style="text-align: center; display: none;">
+                Yes, it's possible to incorporate a home office within your living room design. Here are a few
+                ideas:
+                <ul style="list-style-type: disc;">
+                    <li>Designated area: Dedicate a specific corner or section of the living room for your home
+                        office
+                        setup.</li>
+                    <li>Space-saving solutions: Opt for compact and multifunctional furniture, such as a desk with
+                        built-in storage or a wall-mounted desk.</li>
+                    <li>Privacy and separation: Use room dividers, bookshelves, or curtains to create a visual
+                        separation between the home office area and the rest of the living room.</li>
+                    <li>Lighting and ergonomics: Ensure proper lighting and ergonomic furniture to create a
+                        comfortable
+                        and productive workspace.</li>
+                    <li>Organizational solutions: Incorporate storage solutions like shelves, cabinets, or floating
+                        shelves to keep your office supplies and documents organized.</li>
+                </ul>
+                Consulting with an interior designer can help you optimize your living room space to include a
+                functional and visually appealing home office setup.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleText() {
+            var hiddenText = document.getElementById("hiddenText");
+            hiddenText.style.display = hiddenText.style.display === "none" ? "block" : "none";
+        }
+        function toggleText1() {
+            var hiddenText = document.getElementById("hiddenText1");
+            hiddenText.style.display = hiddenText.style.display === "none" ? "block" : "none";
+        }
+        function toggleText2() {
+            var hiddenText = document.getElementById("hiddenText2");
+            hiddenText.style.display = hiddenText.style.display === "none" ? "block" : "none";
+        }
+        function toggleText3() {
+            var hiddenText = document.getElementById("hiddenText3");
+            hiddenText.style.display = hiddenText.style.display === "none" ? "block" : "none";
+        }
+        function toggleText4() {
+            var hiddenText = document.getElementById("hiddenText4");
+            hiddenText.style.display = hiddenText.style.display === "none" ? "block" : "none";
+        }
+        function openForm() {
+            document.getElementById("myForm1").style.display = "flex";
+        }
+
+        function closeForm() {
+            document.getElementById("myForm1").style.display = "none";
+        }
+    </script>
+    
+
+    <div class="footpanel1">
+        <h4> <a href=""> Back to Top</a></h4>
+    </div>
+
+    <div class="footpanel2">
+        <ul>
+            <b>
+                <p>Get to Know Us</p>
+            </b>
+            <a href="">Patners</a>
+            <a href="">Blog</a>
+            <a href="">About SweetHome</a>
+            <a href="">Investor Relations</a>
+            <a href="">SweetHome Devices</a>
+            <a href="">Our Retails</a>
+        </ul>
+        <ul>
+            <b>
+                <p>Make Money with Us</p>
+            </b>
+            <a href=""> Sell Designs on SweetHome</a>
+            <a href=""> Sell on SweetHome Business
+            </a>
+            <a href=""> Sell on Duronto
+            </a>
+            <a href=""> Become an Affiliate
+            </a>
+            <a href=""> Advertise Your Products on SweetHome
+            </a>
+            <a href=""> Self-Publish with Us
+            </a>
+            <a href=""> Host an SweetHome Franchise
+            </a>
+        </ul>
+        <ul>
+            <b>
+                <p> SweetHome Payment Products
+                </p>
+            </b>
+            <a href=""> SweetHome Business Card
+            </a>
+            <a href=""> Shop with Points
+            </a>
+            <a href=""> Reload Your Balance
+            </a>
+            <a href=""> SweetHome Currency Converter
+            </a>
+        </ul>
+
+        <ul>
+            <b>
+                <p> Let Us Help You
+                </p>
+            </b>
+            <a href=""> SweetHome and COVID-19
+            </a>
+            <a href=""> Your Account
+            </a>
+            <a href=""> Your Orders
+            </a>
+            <a href=""> Shipping Rates & Policies
+            </a>
+            <a href=""> Returns & Replacements
+            </a>
+            <a href=""> Manage Your Content and Devices
+            </a>
+            <a href=""> SweetHome Assistant
+            </a>
+            <a href=""> Help
+            </a>
+        </ul>
+    </div>
+
+    <hr>
+    <footer class="footer" id="footer">
+        <div class="leftk">
+            <div class="left_container">
+                <div class="contact">
+                    <h3>Contact Us</h3>
+                    <p class="address">
+                        123, XYZ Street,<br>
+                        City - 12345<br>
+                        State, Country
+                    </p>
+                    <p class="address">
+                        Phone: +1 234 567890<br>
+                        Email: info@SweetHome.com
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="right_container">
+            <div class="newsletter">
+                <h3 class="news">Newsletter</h3>
+                <form action="#" method="POST">
+                    <input type="email" name="email" id="email" placeholder="Your Email Address">
+                    <button type="submit" class="btn-subscribe">Subscribe</button>
+                </form>
+            </div>
+            <br>
+            <div class="legal_doc">
+                <div class="navFooter">
+                    <a href="#">Terms and Conditions</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Help</a>
+                </div>
+            </div>
+            <br>
+            <p class="copywrite">&copy; 2023 SweetHome. All Rights Reserved.</p>
+        </div>
+
+    </footer>
+    <script>
+        // Function to validate the form
+        function validateForm() {
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var mobile = document.getElementById("mobile").value;
+            var pincode = document.getElementById("pincode").value;
+
+            // Check if the name field is empty
+            if (name == "") {
+                alert("Please enter your name");
+                return false;
+            }
+
+            // Check if the email field is empty or invalid
+            if (email == "") {
+                alert("Please enter your email address");
+                return false;
+            } else {
+                // Regular expression to validate email format
+                var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email)) {
+                    alert("Please enter a valid email address");
+                    return false;
+                }
+            }
+
+            // Check if the mobile field is empty
+            if (mobile == "") {
+                alert("Please enter your mobile number");
+                return false;
+            }
+
+            // Check if the pincode field is empty
+
+
+            // Validation successful
+            alert("Form submitted successfully");
+            return true;
+        }
+
+    </script>
+<div class="form-popup" id="myForm1">
+    <form action="end sem project (uid).html" class="form-container">
+        <button type="button" class="cancel" onclick="closeForm()"></button>
+        <h1 class="title">Bedroom Type</h1>
+        <label class="container">
+            <input type="radio" checked="checked" name="radio">
+            <span class="checkmark"></span>
+            1BHK
+        </label>
+        <label class="container">
+            <input type="radio" name="radio">
+            <span class="checkmark"></span>
+            2BHK
+        </label>
+        <label class="container">
+            <input type="radio" name="radio">
+            <span class="checkmark"></span>
+            3BHK
+        </label>
+
+        <div class="title">Purpose</div>
+        <label class="container">
+            <input type="radio" checked="checked" name="radio1">
+            <span class="checkmark"></span>
+            Move In
+        </label>
+        <label class="container">
+            <input type="radio" name="radio1">
+            <span class="checkmark"></span>
+            Rent In
+        </label>
+        <label class="container">
+            <input type="radio" name="radio1">
+            <span class="checkmark"></span>
+            Renovate
+        </label>
+
+        <div class="button-container">
+            <button type="submit" class="btn">Submit</button>
+        </div>
+    </form>
+</div>
+
+</body>
+
+
+</html>

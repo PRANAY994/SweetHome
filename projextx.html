@@ -1,0 +1,588 @@
+<html>
+
+<head>
+    <style>
+        body {
+            background-color: #b0a6a6;
+            margin:0;
+        }
+
+        .nav {
+            overflow: hidden;
+            background-color:#f6f0e0;
+            margin: 0;
+        }
+
+        .sticky {
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+
+        .nav a {
+            padding-left: 45px;
+            padding-top: 5px;
+            float: left;
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        .nav img {
+            padding: o;
+            margin-top: -1.3rem;
+            margin-left: -2.5rem;
+        }
+
+    #dif{
+         padding-left:0;
+         padding-top:0;
+         margin: 0;
+    }
+
+        .bg {
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 700px;
+            animation: changeBackground 10s ease infinite;
+            
+        }
+
+        @keyframes changeBackground {
+
+            0%,
+            25% {
+                background-image: url('https://www.jaquar.com/images/uploaded/Jaquar-Bath-Slider-01.jpg');
+            }
+
+            35%,
+            60% {
+                background-image: url('https://www.jaquar.com/images/uploaded/Jaquar-Bath-light-Slider-mob1.jpg');
+            }
+
+            70%,
+            100% {
+                background-image: url('https://africa.jaquar.com/jw-image/jaquar-1410x830pixel-03.jpg');
+            }
+        }
+
+
+        @keyframes moveForward {
+            0% {
+                transform: translateX(0);
+            }
+
+            50% {
+                transform: translateX(300px);
+            }
+
+            100% {
+                transform: translateX(300px);
+            }
+        }
+
+        .y {
+            animation: moveForward 2s ease forwards;
+        }
+
+        @keyframes moveBackward {
+            0% {
+                transform: translateX(0);
+            }
+
+            50% {
+                transform: translateX(-300px);
+            }
+
+            100% {
+                transform: translateX(-300px);
+            }
+        }
+
+        .b {
+            animation: moveBackward 2s ease-in-out forwards;
+            animation-fill-mode: forwards;
+            animation-delay: 2s;
+        }
+
+        p .left {
+            padding-top: 50px;
+            font-size: 20px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .box {
+            height: 400px;
+            overflow: hidden;
+            background-color:whitesmoke;
+            
+
+
+
+        }
+
+        .font {
+            font-size: 20px;
+            color: aliceblue;
+        }
+
+        .x {
+            font-size: 20PX;
+            text-align: right;
+            padding-right: 50px;
+            
+
+        }
+
+        
+        
+
+        .box img {
+            height: 360px;
+            width: 400px;
+            transition: transform 0.3s ease;
+        }
+
+        .box:hover img {
+            transform: scale(1.1);
+        }
+        .box p {
+            color: black;
+        padding: 20px;
+        font-size: 16px;
+        line-height: 1.5;
+        text-align: justify;
+        margin: 0;
+        font-family: "Arial", sans-serif;
+        font-weight: 400;
+        font-style: italic;
+    }
+    .contact {
+        margin: 0px 90px 0px 20px;
+    }
+
+    .footer {
+        background-color:#E4504E;
+        color: #fff;
+        padding: 20px 0;
+        font-size: 14px;
+        display: flex;
+    }
+
+    .footer h3 {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .news {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .footer p {
+        margin-bottom: 10px;
+    }
+
+    .legal_doc a {
+        color: #fff;
+        text-decoration: none;
+        margin-left: 10px;
+    }
+
+    .legal_doc a:hover {
+        text-decoration: underline;
+    }
+
+    .right_container {
+        text-align: left;
+        padding-top: 1%;
+        width: 49%;
+        display: inline-block;
+        margin: 0px 90px 0px 20px;
+    }
+
+    .left_container {
+        padding-top: 1%;
+        width: 49%;
+        display: inline-block;
+        margin: 0px 90px 0px 20px;
+    }
+
+    .leftk {
+
+        padding-top: 1%;
+        width: 90%;
+        display: inline-block;
+        margin: 0px 90px 0px 20px;
+    }
+
+    .navFooter {
+        margin: 0px 0px auto auto;
+    }
+    a {
+        text-decoration: none;
+    }
+
+    .footpanel1 {
+        background-color: rgb(222, 213, 215);
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 0.85rem;
+    }
+
+    .footpanel2 {
+        background-color:#E4504E;
+        color: white;
+        height: 300px;
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .footpanel2 a {
+        color: white;
+    }
+
+    .footpanel2 a:hover {
+        text-decoration: underline;
+    }
+
+
+    ul {
+        margin-top: 20px;
+    }
+
+    ul a {
+        display: block;
+        font-size: 0.85rem;
+        margin-top: 10px;
+        color: #000;
+    }
+
+        
+    </style>
+
+    </style>
+
+</head>
+
+<body>
+    <div class="bg">
+        <div class="nav">
+            <p> <a href="#"> Partner with HomeLane </a></p>
+            <p> <a href="#"> Refer and Earn </a></p>
+            <p> <a href="#"> Join Us</a></p>
+            <p> <a href="#"> Cities </a></p>
+            <p> <a href="#" style="float:right;"> Customer support </a></p>
+            <p> <a href="#" style="float:right;"> Visit Us </a></p>
+            <p style="float:right;"> <a href="login.html" style="float:right;"> Login/Register </a></p>
+        </div>
+        <div class="nav">
+            <hr>
+
+            <div class="sticky">
+                
+                <p> <a href="p3.html"> Wardrobe </a></p>
+                <p> <a href="bedroom1.html"> Bedroom </a></p>
+                <p> <a href="p2.html"> Living Room </a></p>
+                <p> <a href="projextx.html"> Bathroom </a></p>
+                <p> <a href="color.html">Design Your Vision</a></p>
+                <p> <a href="homeoffice1.html"> Home Office </a></p>
+                <p> <a href="car.html"> Modular kitchen </a></p>
+                <p> <a href="customer service.html"> Customer Service </a></p>
+                <p> <a href="#" style="padding-bottom:5px;padding-left:50px;"></a> <button onclick="openForm1()"
+                        style="background-color: rgb(238, 8, 8);padding:7px 7px;color:azure;font-family:Arial, Helvetica, sans-serif;border-radius:5px;;border-color: rgb(238, 8, 8);">
+                        Get Free Estimate
+                    </button></a></p>
+            </div>
+        </div>
+
+        <div>
+            <p
+                style="font-family: Arial, Helvetica, sans-serif;color: aliceblue;text-align: center;padding-top: 200px;font-size: 30px;">
+                BATHROOM SOLUTIONS</p>
+            <hr style="width: 500px;align-self: center;">
+            <p style="text-align: center;color: aliceblue;">Experience the epitome of luxury and functionality, where
+                every click brings you one step closer to the bathroom of your dreams.</p>
+        </div>
+    </div>
+    <div style="height:50px;"> </div>
+
+    <div class="box">
+
+        <div>
+            <p style="background-color: brown;text-align: center;" class="x"> Vogue Double-Shutter Bathroom Cabinet </p>
+
+        </div>
+        <img height="360px" width="400px"
+            src="https://super.homelane.com/Nera%20Bathroom/16322996132898125e508312a-HLKT00000737_11-main.jpg">
+        <p style="float:right;text-align: center;margin-top:70px;margin-right:50px;"> Pared-down, minimalistic style shines through in this compact bathroom decor <br>
+            thats one of our most popular picks! The wooden bathroom vanity maximises <br>
+            storage in a tiny footprint, and stows away all the chaos of your bathroom toiletry <br>
+            Neutral subway-style bathroom wall tiles allow the pretty Moroccan patterned <br>
+            flooring to take the spotlight. </p>
+    </div>
+
+    <div class="box">
+
+        <div>
+            <p style="background-color: brown;text-align: center;" class="x"> Dapper Bathroom Cabinet with Open Storage
+            </p>
+
+        </div>
+        <img height="360px" width="400px" style="float:right;"
+            src="https://super.homelane.com/Nera%20Bathroom/163229810927569e341ff8d3c-HLKT00000739_2-main.jpg">
+        <p style="float:left;text-align: center;margin-top:70px;margin-left:50px;"> This two-tone bathroom cabinet perfectly nails contemporary style, with its neat, <br>
+            minimalistic styling and lovely pairing of deep blue on white. Open shelves alongside <br>
+            the mirror allow easy easy access to everyday items. The bathroom glass partitio <br>
+            allows visual transparency, seamlessly divvying up the wet and dry spaces and<br>
+            ensuring hygiene </p>
+    </div>
+
+    <div class="box">
+
+        <div>
+            <p style="background-color: brown;text-align: center;" class="x"> Elementary Hidden Storage Bathrrom Cabinet
+            </p>
+
+        </div>
+        <img height="360px" width="400px"
+            src="https://super.homelane.com/Nera%20Bathroom/163229887678665e9044a0a1b-HLKT00000743_5-main.jpg">
+        <p style="float:right;text-align: center;margin-top:70px;margin-right:50px;"> Step into this nature-inspired bathroom decor and you’ll literally feel your tension
+            <br>
+            melting away! Deep forest green tiles wrap around the soak tub, while the texture<br>
+            woody bathroom vanity sits next to wood-look-alike wall tiles. There’s plenty of<br>
+            space, both below the sink and above the pot, to store all that you need to wind down<br>
+            and relax </p>
+    </div>
+
+    <div class="box">
+
+        <div>
+            <p style="background-color: brown;text-align: center;" class="x"> Radiance 3 shuttered Mirror Bathroom
+                Cabinet </p>
+
+        </div>
+        <img height="360px" width="400px" style="float:right;"
+            src="https://super.homelane.com/Nera%20Bathroom/1632299074637edd329a30cc8-HLKT00000744_6-main.jpg">
+        <p style="float:left;text-align: center;margin-top:70px;margin-left:50px;"> Want to get your little ones all excited about brushing their teeth? This playfully<br>
+            patterned, vibrant bathroom interior will help! The floating, bright maroon vanit<br>
+            matches the wall storage above, adding a splash of colour to this child-friendly <br>
+            bathroom. Your moppets are sure to love the colourful green wall tiles and graphi<br>
+            patterned bathroom floor tiles too </p>
+    </div>
+
+    <div class="box">
+
+        <div>
+            <p style="background-color: brown;text-align: center;" class="x"> Opulence Extra Large Master Bathroom
+                Premium Combo </p>
+
+        </div>
+        <img height="360px" width="400px"
+            src=" https://super.homelane.com/Nera%20Bathroom/1632297931131347e5855c776-HLKT00000741_4-main.jpg">
+        <p style="float:right;padding-right:40px;padding-top: 20px;font-size:15px;text-align: center;margin-top:70px;margin-right:50px;"> Does efficient, elegant minimal
+            design score high on your list of bathroom must- <br>
+            haves? This contemporary bathroom decor features a spacious ivory vanity wIth <br>
+            drawers and pullouts below the sink, and a large horizontal mirror that visually<br>
+            enhances the available space. Showcasing lovely bathroom lighting ideas, and a <br>
+            soothing, earthy colour palette, this bathroom is a space that you’d love to call your </p>
+    </div>
+
+    <div class="box">
+
+        <div>
+            <p style="background-color: brown;text-align: center;" class="x"> Terrazzo Lagoon Bathroom Design
+                 </p>
+
+        </div>
+        <img height="360px" width="400px" style="float:right;"
+            src="https://super.homelane.com/Nera%20Bathroom/1681203120954d2ef681cc107-HLKT00000825_batch-3-800x600_14-main.jpg">
+        <p style="float:left;text-align: center;margin-top:70px;margin-left:50px;"> Looking for green bathroom décor ideas? Here’s one that brings the refreshing<br>
+            colours of the forest right into your home! From the fish scale tiles in a vibrant array <br>
+            of green hues to the pastel green subway tiles alongside, this stunning shower <br>
+            cubicle certainly demands attention. And with the lovely contrast against trendy<br>
+            terrazzo on the floor and counter, this is a bathroom that checks all the right boxes! </p>
+    </div>
+
+    <div class="box">
+
+        <div>
+            <p style="background-color: brown;text-align: center;" class="x"> Panache Bathroom Cabinet with Sliding Shutters
+                 </p>
+
+        </div>
+        <img height="360px" width="400px"
+            src="https://super.homelane.com/Nera%20Bathroom/16322934464234b27df80b0cd-HLKT00000738_1-main.jpg">
+        <p style="float:right;padding-right:40px;padding-top: 20px;font-size:15px;text-align: center;margin-top:70px;margin-right:50px;"> With a floating vanity design, you’ll instantly make your bathroom look larger, and
+            <br>
+            nsure easy hygiene as well! This lovely bathroom has plenty of storage space in the <br>
+            form of open shelves and closed cabinets, both above and below the washbasi <br>
+            counter. Keeping the space functional, wet and dry areas are neatly demarcated b<br>
+            the floor-to-ceiling frameless bathroom glass partition </p>
+    </div>
+    <div class="footpanel1">
+        <h4> <a href="end sem project (uid).html"> Back to Top</a></h4>
+    </div>
+    
+    <div class="footpanel2">
+        <ul>
+            <b>
+                <p>Get to Know Us</p>
+            </b>
+            <a href="">Patners</a>
+            <a href="">Blog</a>
+            <a href="">About SweetHome</a>
+            <a href="">Investor Relations</a>
+            <a href="">SweetHome Devices</a>
+            <a href="">Our Retails</a>
+        </ul>
+        <ul>
+            <b>
+                <p>Make Money with Us</p>
+            </b>
+            <a href=""> Sell Designs on SweetHome</a>
+            <a href=""> Sell on SweetHome Business
+            </a>
+            <a href=""> Sell  on Duronto
+            </a>
+            <a href=""> Become an Affiliate
+            </a>
+            <a href=""> Advertise Your Products on SweetHome
+            </a>
+            <a href=""> Self-Publish with Us
+            </a>
+            <a href=""> Host an SweetHome Franchise
+            </a>
+        </ul>
+        <ul>
+            <b>
+                <p> SweetHome Payment Products
+                </p>
+            </b>
+            <a href=""> SweetHome Business Card
+            </a>
+            <a href=""> Shop with Points
+            </a>
+            <a href=""> Reload Your Balance
+            </a>
+            <a href=""> SweetHome Currency Converter
+            </a>
+        </ul>
+    
+        <ul>
+            <b>
+                <p> Let Us Help You
+                </p>
+            </b>
+            <a href=""> SweetHome and COVID-19
+            </a>
+            <a href=""> Your Account
+            </a>
+            <a href=""> Your Orders
+            </a>
+            <a href=""> Shipping Rates & Policies
+            </a>
+            <a href=""> Returns & Replacements
+            </a>
+            <a href=""> Manage Your Content and Devices
+            </a>
+            <a href=""> SweetHome Assistant
+            </a>
+            <a href=""> Help
+            </a>
+        </ul>
+    </div>
+    
+    <hr>
+    <footer class="footer" id="footer">
+        <div class="leftk">
+            <div class="left_container">
+                <div class="contact">
+                    <h3>Contact Us</h3>
+                    <p class="address">
+                        123, XYZ Street,<br>
+                        City - 12345<br>
+                        State, Country
+                    </p>
+                    <p class="address">
+                        Phone: +1 234 567890<br>
+                        Email: info@SweetHome.com
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="right_container">
+            <div class="newsletter">
+                <h3 class="news">Newsletter</h3>
+                <form action="#" method="POST">
+                    <input type="email" name="email" id="email" placeholder="Your Email Address">
+                    <button type="submit" class="btn-subscribe">Subscribe</button>
+                </form>
+            </div>
+            <br>
+            <div class="legal_doc">
+                <div class="navFooter">
+                        <a href="#">Terms and Conditions</a>
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Help</a>
+                </div>
+            </div>
+            <br>
+            <p class="copywrite">&copy; 2023 SweetHome. All Rights Reserved.</p>
+        </div>
+    
+    </footer>
+    <script>
+        // Function to validate the form
+    function validateForm() {
+        var name = document.getElementById("name").value;
+        var email = document.getElementById("email").value;
+        var mobile = document.getElementById("mobile").value;
+        var pincode = document.getElementById("pincode").value;
+    
+        // Check if the name field is empty
+        if (name == "") {
+            alert("Please enter your name");
+            return false;
+        }
+    
+        // Check if the email field is empty or invalid
+        if (email == "") {
+            alert("Please enter your email address");
+            return false;
+        } else {
+            // Regular expression to validate email format
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert("Please enter a valid email address");
+                return false;
+            }
+        }
+    
+        // Check if the mobile field is empty
+        if (mobile == "") {
+            alert("Please enter your mobile number");
+            return false;
+        }
+    
+        // Check if the pincode field is empty
+    
+    
+        // Validation successful
+        alert("Form submitted successfully");
+        return true;
+    }
+    
+    </script>
+
+
+
+

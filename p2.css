@@ -1,0 +1,451 @@
+
+        body {
+            margin: 0;
+        }
+
+        .nav {
+            overflow: hidden;
+            background-color:#f6f0e0;
+            margin: 0;
+        }
+
+        .sticky {
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+
+        .nav a {
+            padding-left: 45px;
+            padding-top: 5px;
+            float: left;
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        .nav img {
+            padding: o;
+            margin-top: -1.3rem;
+            margin-left: -2.5rem;
+        }
+
+    #dif{
+         padding-left:0;
+         padding-top:0;
+         margin: 0;
+    }
+
+        .c {
+            background-image: url('https://www.mlinterior.co.za/assets/media/content/main-slider/1.jpg');
+            opacity: 0.9;
+            width: auto;
+            height: 500px;
+            z-index: -1;
+        }
+
+        .button {
+            display: inline-block;
+            border-radius: 4px;
+            opacity: 1;
+            border: none;
+            color: black;
+            text-align: center;
+            font-size: 28px;
+            padding: 20px;
+            width: 200px;
+            transition: all 0.5s;
+            cursor: pointer;
+            margin: 5px;
+            background-color: bisque;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        .button span {
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            transition: 0.5s;
+        }
+
+        .button span:after {
+            content: '\00bb';
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            right: -20px;
+            transition: 0.8s;
+            font-size: 64px;
+            /* Change this value to your desired font size */
+        }
+
+        .button:hover span {
+            padding-right: 25px;
+        }
+
+        .button:hover span:after {
+            opacity: 1;
+            right: 0;
+        }
+
+
+        table {
+            background-color: aliceblue;
+            text-align: center;
+            height: 300px;
+            width: 400px;
+        }
+
+        td {
+            padding-left: 10px;
+
+        }
+
+        @keyframes moveForward {
+            0% {
+                transform: translateX(0);
+            }
+
+            50% {
+                transform: translateX(300px);
+            }
+
+            100% {
+                transform: translateX(300px);
+            }
+        }
+
+        .y {
+            animation: moveForward 2s ease forwards;
+        }
+
+        @keyframes moveBackward {
+            0% {
+                transform: translateX(0);
+            }
+
+            50% {
+                transform: translateX(-300px);
+            }
+
+            100% {
+                transform: translateX(-300px);
+            }
+        }
+
+        .b {
+            animation: moveBackward 2s ease-in-out forwards;
+            animation-fill-mode: forwards;
+            animation-delay: 2s;
+        }
+
+        .d {
+            background-color: transparent;
+
+        }
+
+        .g {
+            width: 300px;
+            height: 300px;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+
+        .g img {
+            width: 100%;
+            transition: 0.5s all ease-in-out;
+            border-radius: 10px;
+        }
+        .g  {
+            transition: 0.5s all ease-in-out;
+           
+        }
+
+        .g:hover {
+            transform: scale(1.5);
+        }
+
+        .n {
+            background-image: url('"C:\Users\PRANAY\AppData\Local\Temp\MicrosoftEdgeDownloads\6fc619bd-43af-48f3-bb33-eceac6e68d59\pexels-vecislavas-popa-1571453.jpg"');
+            width: auto;
+            height: 500px;
+        }
+        @keyframes glowing {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 0 10px #00b2f3;
+            }
+
+            50% {
+                transform: scale(1.1);
+                box-shadow: 0 0 20px #ff166f;
+            }
+        }
+        table .ass {
+            margin :0px;
+            border :0px;
+
+        }
+        .form-popup {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            z-index: 9;
+            background-color: rgba(0, 0, 0, 0.5); /* Added a semi-transparent background */
+        }
+        
+        .form-container {
+            max-width: 300px;
+            padding: 20px;
+            background-color: #fff;
+            position: relative;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Added a box shadow */
+        }
+        
+        /* Full-width input fields */
+        .form-container input[type=text],
+        .form-container input[type=password] {
+            width: 100%;
+            padding: 15px;
+            margin: 5px 0 22px 0;
+            border: none;
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+        
+        
+        /* When the inputs get focus, do something */
+        .form-container input[type=text]:focus,
+        .form-container input[type=password]:focus {
+            background-color: #ddd;
+            outline: none;
+        }
+        
+        /* Set a style for the submit/login button */
+        .form-container .btn {
+            background-color: #04AA6D;
+            color: white;
+            padding: 16px 20px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            margin-bottom: 10px;
+            opacity: 0.8;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .form-container .btn:hover {
+            background-color: #048e5e;}
+        
+        /* Add a red background color to the cancel button */
+        .form-container .cancel {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: red;
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+        }
+        
+        .form-container .cancel:hover {
+            background-color: #ff0000;
+        }
+        
+        .form-container .cancel::before,
+        .form-container .cancel::after {
+            content: "";
+            position: absolute;
+            height: 12px;
+            width: 2px;
+            background-color: white;
+        }
+        
+        .form-container .cancel::before {
+            transform: rotate(45deg);
+        }
+        
+        .form-container .cancel::after {
+            transform: rotate(-45deg);
+        }
+        
+        .container {
+            display: inline-flex;
+            align-items: center;
+            margin-right: 20px;
+            cursor: pointer;
+        }
+        
+        .container input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+        }
+        
+        .checkmark {
+            position: relative;
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #aaa;
+            border-radius: 50%;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .container input:checked~.checkmark {
+            background-color: #2196F3;
+            border-color: #2196F3;
+        }
+        
+        .checkmark::after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+        
+        .container input:checked~.checkmark::after {
+            display: block;
+        }
+        
+        .container .checkmark::after {
+            top: 5px;
+            left: 5px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: white;
+        }
+        
+        .button-container {
+            margin-top: 20px;
+        }
+        
+        .button-container .btn {
+            background-color: #04AA6D;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .contact {
+            margin: 0px 90px 0px 20px;
+        }
+    
+        .footer {
+            background-color:#E4504E;
+            color: #fff;
+            padding: 20px 0;
+            font-size: 14px;
+            display: flex;
+        }
+    
+        .footer h3 {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+    
+        .news {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+    
+        .footer p {
+            margin-bottom: 10px;
+        }
+    
+        .legal_doc a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 10px;
+        }
+    
+        .legal_doc a:hover {
+            text-decoration: underline;
+        }
+    
+        .right_container {
+            text-align: left;
+            padding-top: 1%;
+            width: 49%;
+            display: inline-block;
+            margin: 0px 90px 0px 20px;
+        }
+    
+        .left_container {
+            padding-top: 1%;
+            width: 49%;
+            display: inline-block;
+            margin: 0px 90px 0px 20px;
+        }
+    
+        .leftk {
+    
+            padding-top: 1%;
+            width: 90%;
+            display: inline-block;
+            margin: 0px 90px 0px 20px;
+        }
+    
+        .navFooter {
+            margin: 0px 0px auto auto;
+        }
+        a {
+            text-decoration: none;
+        }
+    
+        .footpanel1 {
+            background-color: rgb(222, 213, 215);
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.85rem;
+        }
+    
+        .footpanel2 {
+            background-color:#E4504E;
+            color: white;
+            height: 300px;
+            display: flex;
+            justify-content: space-evenly;
+        }
+    
+        .footpanel2 a {
+            color: white;
+        }
+    
+        .footpanel2 a:hover {
+            text-decoration: underline;
+        }
+    
+    
+        ul {
+            margin-top: 20px;
+        }
+    
+        ul a {
+            display: block;
+            font-size: 0.85rem;
+            margin-top: 10px;
+            color: #000;
+        }
+        

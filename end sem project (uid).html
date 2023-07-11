@@ -1,0 +1,842 @@
+<html>
+
+<head>
+    <style>
+        body {
+
+            margin: 0;
+        }
+
+        .jj {
+            background-image: url('https://www.garrettsmovinginc.com/blog/wp-content/uploads/2016/01/Empty-Room-1-Blog-15.jpg');
+            background-size: cover;
+        }
+
+        .nav {
+            overflow: hidden;
+            background-color: #f6f0e0;
+            margin: 0;
+        }
+
+        .sticky {
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+
+        .nav a {
+            padding-left: 45px;
+            padding-top: 5px;
+            float: left;
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        .nav img {
+            padding: o;
+            margin-top: -1.3rem;
+            margin-left: -2.5rem;
+        }
+
+        #dif {
+            padding-left: 0;
+            padding-top: 0;
+            margin: 0;
+        }
+
+
+
+        table {
+            margin-left: 400px;
+            background-color: beige;
+            text-align: center;
+            height: 500px;
+            width: 400px;
+        }
+
+        td {
+            padding-left: 10px;
+
+        }
+
+        @keyframes moveForward {
+            0% {
+                transform: translateX(0);
+            }
+
+            50% {
+                transform: translateX(300px);
+            }
+
+            100% {
+                transform: translateX(300px);
+            }
+        }
+
+        .y {
+            animation: moveForward 2s ease forwards;
+        }
+
+        @keyframes moveBackward {
+            0% {
+                transform: translateX(0);
+            }
+
+            50% {
+                transform: translateX(-300px);
+            }
+
+            100% {
+                transform: translateX(-300px);
+            }
+        }
+
+        .b {
+            animation: moveBackward 2s ease-in-out forwards;
+            animation-fill-mode: forwards;
+            animation-delay: 2s;
+        }
+
+        .form-popup {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            z-index: 9;
+            background-color: rgba(0, 0, 0, 0.5);
+            /* Added a semi-transparent background */
+        }
+
+        .form-container {
+            max-width: 300px;
+            padding: 20px;
+            background-color: #fff;
+            position: relative;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            /* Added a box shadow */
+        }
+
+        /* Full-width input fields */
+        .form-container input[type=text],
+        .form-container input[type=password] {
+            width: 100%;
+            padding: 15px;
+            margin: 5px 0 22px 0;
+            border: none;
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+
+
+        /* When the inputs get focus, do something */
+        .form-container input[type=text]:focus,
+        .form-container input[type=password]:focus {
+            background-color: #ddd;
+            outline: none;
+        }
+
+        /* Set a style for the submit/login button */
+        .form-container .btn {
+            background-color: #04AA6D;
+            color: white;
+            padding: 16px 20px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            margin-bottom: 10px;
+            opacity: 0.8;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-container .btn:hover {
+            background-color: #048e5e;
+        }
+
+        /* Add a red background color to the cancel button */
+        .form-container .cancel {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: red;
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-container .cancel:hover {
+            background-color: #ff0000;
+        }
+
+        .form-container .cancel::before,
+        .form-container .cancel::after {
+            content: "";
+            position: absolute;
+            height: 12px;
+            width: 2px;
+            background-color: white;
+        }
+
+        .form-container .cancel::before {
+            transform: rotate(45deg);
+        }
+
+        .form-container .cancel::after {
+            transform: rotate(-45deg);
+        }
+
+        .container {
+            display: inline-flex;
+            align-items: center;
+            margin-right: 20px;
+            cursor: pointer;
+        }
+
+        .container input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .checkmark {
+            position: relative;
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #aaa;
+            border-radius: 50%;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .container input:checked~.checkmark {
+            background-color: #2196F3;
+            border-color: #2196F3;
+        }
+
+        .checkmark::after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+
+        .container input:checked~.checkmark::after {
+            display: block;
+        }
+
+        .container .checkmark::after {
+            top: 5px;
+            left: 5px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: white;
+        }
+
+        .h {
+            border-radius: 10px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: 200px 200px 200px 200px 200px;
+            grid-template-rows: 200px;
+            gap: 10px;
+            background-color: white;
+            padding: 10px;
+            padding-left: 300px;
+        }
+
+        .grid-container>div {
+            background-color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+            padding: 20px 0;
+            font-size: 30px;
+        }
+
+        .grid-containe {
+            display: grid;
+            grid-template-columns: 200px 200px 200px 200px 200px;
+            grid-template-rows: 120px;
+            gap: 10px;
+            background-color: rgb(255, 0, 0);
+            padding: 10px;
+            padding-left: 300px;
+        }
+
+        .grid-containe>div {
+            background-color: rgb(255, 0, 0);
+            text-align: center;
+            padding: 20px 0;
+            font-size: 30px;
+        }
+
+
+
+        .n {
+            height: 500px;
+            z-index: -1;
+        }
+
+        /* Footer style starts here */
+        .contact {
+            margin: 0px 90px 0px 20px;
+        }
+
+        .footer {
+            background-color: #E4504E;
+            color: #fff;
+            padding: 20px 0;
+            font-size: 14px;
+            display: flex;
+        }
+
+        .footer h3 {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .news {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .footer p {
+            margin-bottom: 10px;
+        }
+
+        .legal_doc a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 10px;
+        }
+
+        .legal_doc a:hover {
+            text-decoration: underline;
+        }
+
+        .right_container {
+            text-align: left;
+            padding-top: 1%;
+            width: 49%;
+            display: inline-block;
+            margin: 0px 90px 0px 20px;
+        }
+
+        .left_container {
+            padding-top: 1%;
+            width: 49%;
+            display: inline-block;
+            margin: 0px 90px 0px 20px;
+        }
+
+        .leftk {
+
+            padding-top: 1%;
+            width: 90%;
+            display: inline-block;
+            margin: 0px 90px 0px 20px;
+        }
+
+        .navFooter {
+            margin: 0px 0px auto auto;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .footpanel1 {
+            background-color: rgb(222, 213, 215);
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.85rem;
+        }
+
+        .footpanel2 {
+            background-color: #E4504E;
+            color: white;
+            height: 300px;
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        .footpanel2 a {
+            color: white;
+        }
+
+        .footpanel2 a:hover {
+            text-decoration: underline;
+        }
+
+
+        ul {
+            margin-top: 20px;
+        }
+
+        ul a {
+            display: block;
+            font-size: 0.85rem;
+            margin-top: 10px;
+            color: #000;
+        }
+
+        .scroll-container {
+            background-color: #ffffff;
+            overflow: auto;
+            white-space: nowrap;
+            padding: 10px;
+        }
+
+        .image-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            /* Adjust the background color and opacity as desired */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .image-container:hover .overlay {
+            opacity: 1;
+        }
+
+        .overlay p {
+            color: white;
+            font-size: 18px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="jj">
+        <div class="nav">
+            <p> <a href="#"> Partner with HomeLane </a></p>
+            <p> <a href="#"> Refer and Earn </a></p>
+            <p> <a href="#"> Join Us</a></p>
+            <p> <a href="#"> Cities </a></p>
+            <p> <a href="#" style="float:right;"> Customer support </a></p>
+            <p> <a href="#" style="float:right;"> Visit Us </a></p>
+            <p> <a href="login.html" style="float:right;"> Login/Register </a></p>
+        </div>
+        <div class="nav">
+            <hr>
+
+            <div class="sticky">
+                <p id="dif"> <a href="end sem project (uid).html"><img src="db3331c19d2949859833aa3511e7c00e.png" width="100px" height="100px">
+                    </a></p>
+
+                <p> <a href="p3.html"> Wardrobe </a></p>
+                <p> <a href="bedroom1.html"> Bedroom </a></p>
+                <p> <a href="p2.html"> Living Room </a></p>
+                <p> <a href="projextx.html"> Bathroom </a></p>
+                <p> <a href="color.html">Design Your Vision</a></p>
+                <p> <a href="homeoffice1.html"> Home Office </a></p>
+                <p> <a href="car.html"> Modular kitchen </a></p>
+                <p> <a href="customer service.html"> Customer Service </a></p>
+                <p> <a href="#" style="padding-bottom:5px;padding-left:50px;"></a> <button onclick="openForm1()"
+                        style="background-color: rgb(238, 8, 8);padding:7px 7px;color:azure;font-family:Arial, Helvetica, sans-serif;border-radius:5px;;border-color: rgb(238, 8, 8);">
+                        Get Free Estimate
+                    </button></a></p>
+            </div>
+        </div>
+
+        <div>
+            <form>
+                <p style="color: azure; font-size: 60px; padding-left: 30px;"><b>Discover the Essence<br> <span
+                            style="color:rgb(240, 240, 9);">of Stylish Living</span></b></p>
+                        <div style="width:auto;height:300px;"></div>
+                <div>
+            </form>
+            
+
+
+
+            <div class="form-popup" id="myForm">
+                <form action="end sem project (uid).html" class="form-container">
+                    <h2 style="margin-top: 0; font-size: 24px;">Meet the Best Designer</h2>
+                    <button type="button" class="cancel" onclick="closeForm()"></button>
+                    <label for="name" style="font-size: 14px;">Name:</label><br>
+                    <input type="text" id="name" name="name" placeholder="Your name" pattern="[A-Za-z ]+"
+                        title="Please enter only alphabetic characters" required
+                        style="width: 100%; padding: 10px; margin-bottom: 10px; border: none; background-color: #f8f8f8; border-radius: 5px;"><br>
+                    <label for="email" style="font-size: 14px;">Email:</label><br>
+                    <input type="email" id="email" name="email" placeholder="Your email address" required
+                        style="width: 100%; padding: 10px; margin-bottom: 10px; border: none; background-color: #f8f8f8; border-radius: 5px;"><br>
+                    <label for="mobile" style="font-size:18px;">Mobile Number:</label><br>
+                    <div style="display: flex; align-items: center;">
+                        <select id="countryCode" name="countryCode"
+                            style="width: 80px; padding: 10px; margin-right: 10px; border: none; background-color: #f8f8f8; border-radius: 5px;">
+                            <option value="+1">🇺🇸 +1</option>
+                            <option value="+91">🇮🇳 +91</option>
+                            <option value="+44">🇬🇧 +44</option>
+                        </select>
+                        <input type="number" id="mobile" name="mobile" placeholder="Your mobile number" pattern="[0-9]+"
+                            title="Please enter only numeric characters" required
+                            style="flex-grow: 1; padding: 10px; margin-bottom: 10px; border: none; background-color: #f8f8f8; border-radius: 5px;">
+                    </div>
+                    <label for="email" style="font-size: 14px;">Pincode:</label><br>
+                    <input type="text" id="pincode" name="pincode" placeholder="Enter your current resident pincode"
+                        pattern="[0-9]+" title="Please enter only numeric characters" required
+                        style="width: 100%; padding: 10px; margin-bottom: 10px; border: none; background-color: #f8f8f8; border-radius: 5px;">
+                    <input type="submit" value="Book Design Session" ondblclick="hello()"
+                        style="width: 100%; padding: 10px; background-color: #3f51b5; color: white; border: none; border-radius: 5px; cursor: pointer; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+                </form>
+            </div>
+
+            <div style="height:300px;width:auto;background-color: transparent;">
+
+            </div>
+        </div>
+
+
+        <script>
+            function hello(){
+                alert("sucssesfully booked the designer .we will contact you soon")
+            }
+            function openForm() {
+                document.getElementById("myForm").style.display = "flex";
+            }
+
+            function closeForm() {
+                document.getElementById("myForm").style.display = "none";
+            }
+            function openForm1() {
+                document.getElementById("myForm1").style.display = "flex";
+            }
+
+            function closeForm1() {
+                document.getElementById("myForm1").style.display = "none";
+            }
+        </script>
+    </div>
+    </div>
+
+    <br>
+    <br><br>
+    <div class="n">
+        <div style="display: flex; align-items: center;">
+            <div style="padding-left: 200px;">
+                <img src="https://super.homelane.com/homepage/CompleteHI-03.png" width="350px" height="300px">
+            </div>
+            <div
+                style="color:rgb(0, 0, 0); font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size: 40px;padding-left: 100px;padding-bottom: 130px;">
+                <h2 style=" font-size: 24px;">Complete home interiors in 3 easy steps</h2><br>
+                <p><span style="color: #ff0000;">Discover&nbsp;&nbsp;&nbsp;&nbsp;Design
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Move in</span></p>
+            </div>
+        </div>
+        <div>
+            <div style="padding-left:670px;"><input type="button" value="Book Design Session" onclick="openForm()"
+                    style="padding: 10px; background-color: #f02b2b; color: white; border: none; border-radius: 5px; cursor: pointer; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size: 30px;">
+            </div>
+
+        </div>
+        <div class="form-popup" id="myForm1">
+            <form action="end sem project (uid).html" class="form-container">
+                <button type="button" class="cancel" onclick="closeForm1()"></button>
+                <h1 class="title">Bedroom Type</h1>
+                <label class="container">
+                    <input type="radio" checked="checked" name="radio">
+                    <span class="checkmark"></span>
+                    1BHK
+                </label>
+                <label class="container">
+                    <input type="radio" name="radio">
+                    <span class="checkmark"></span>
+                    2BHK
+                </label>
+                <label class="container">
+                    <input type="radio" name="radio">
+                    <span class="checkmark"></span>
+                    3BHK
+                </label>
+
+                <div class="title">Purpose</div>
+                <label class="container">
+                    <input type="radio" checked="checked" name="radio1">
+                    <span class="checkmark"></span>
+                    Move In
+                </label>
+                <label class="container">
+                    <input type="radio" name="radio1">
+                    <span class="checkmark"></span>
+                    Rent In
+                </label>
+                <label class="container">
+                    <input type="radio" name="radio1">
+                    <span class="checkmark"></span>
+                    Renovate
+                </label>
+
+                <div class="button-container">
+                    <button type="submit" class="btn">Submit</button>
+                </div>
+            </form>
+        </div>
+        <div style="font-size:40px;font-family:Verdana, Geneva, Tahoma, sans-serif;color:red;">Trending</div>
+        <br>
+        <div class="scroll-container">
+            <div class="image-container">
+                <img src="https://super.homelane.com/other%20interiors/1681280027230f84caeb5e8d6-HLKT00000830_batch-2-800x600_26-main.jpg"
+                    alt="Cinque Terre" width="400" height="300" style="border-radius: 10px;">
+                <div class="overlay">
+                    <p>Bohemian Jungle Living Room Design</p>
+                </div>
+            </div>
+            <div class="image-container">
+                <img src="https://super.homelane.com/other%20interiors/1681279874761b4875200ceaf-HLKT00000829_batch-2-800x600_7-main.jpg"
+                    alt="Forest" width="400" height="300" style="border-radius: 10px;">
+                <div class="overlay">
+                    <p> Urban Sunshine Living Room Design</p>
+                </div>
+            </div>
+            <div class="image-container">
+                <img src="https://super.homelane.com/other%20interiors/1680685596231a1f94015a959-HLKT00000801_living-room-800x600_7-main.jpg"
+                    alt="Northern Lights"  width="400" height="300" style="border-radius: 10px;">
+                <div class="overlay">
+                    <p>Curvaceously Yours Living Room Design</p>
+                </div>
+            </div>
+            <div class="image-container">
+                <img src="https://super.homelane.com/other%20interiors/1680685190607f5a016ef3f59-HLKT00000797_living-room-800x600_11-main.jpg"
+                    alt="Mountains" width="400" height="300" style="border-radius: 10px;">
+                <div class="overlay">
+                    <p>Neutral Wonder Modern Living Room Design</p>
+                </div>
+            </div>
+            <div class="image-container">
+                <img src="https://super.homelane.com/wardrobes/161286206287988a0a61121e5-HLKT00000724_106-main.jpg"
+                    alt="Mount"width="400" height="300" style="border-radius: 10px;">
+                <div class="overlay">
+                    <p>Cyan Blue and Grey Sliding Door Mirrored Wardrobee</p>
+                </div>
+            </div>
+            <div class="image-container">
+                <img src="https://super.homelane.com/other%20interiors/16806847985346d016946c9d1-HLKT00000794_living-room-800x600_6-main.jpg"
+                    alt="Mout"width="400" height="300" style="border-radius: 10px;">
+                <div class="overlay">
+                    <p>Perfect Flaws Rustic Living Room Design</p>
+                </div>
+            </div>
+            <div class="image-container">
+                <img src="https://super.homelane.com/other%20interiors/16806849858178d361e94e031-HLKT00000795_living-room-800x600_4-main.jpg"
+                    alt="Mout"  width="400" height="300" style="border-radius: 10px;">
+                <div class="overlay">
+                    <p>Contemporary and Bright Living Room Design</p>
+                </div>
+            </div>
+            <div class="image-container">
+                <img src="https://super.homelane.com/other%20interiors/16364335777383ceb4b34b972-HLKT00000763_resize-800x600_5-main.jpg"
+                    alt="Mout"  width="400" height="300" style="border-radius: 10px;">
+                <div class="overlay">
+                    <p>It's All About Grey Matter Living Room</p>
+                </div>
+            </div>
+            <div class="image-container">
+                <img src="https://super.homelane.com/other%20interiors/16364324986456a596bb2b958-HLKT00000761_resize-800x600_2-main.jpg"
+                    alt="Mout"width="400" height="300" style="border-radius: 10px;">
+                <div class="overlay">
+                    <p>A Tinge of Earth Living Room</p>
+                </div>
+            </div>
+            <div class="image-container">
+                <img src="https://res.cloudinary.com/munkee/image/upload/v1682432945/web-gradient-iphone-wallpaper/43855.jpg"
+                    alt="Mout"  width="400" height="300" style="border-radius: 10px;">
+                <div class="overlay">
+                    <p> <a href="#" style="padding-bottom:5px;padding-left:50px;"></a> <button onclick="openForm()"
+                            style="background-color: rgb(238, 8, 8);padding:7px 7px;color:azure;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;border-radius:5px;;border-color: rgb(238, 8, 8);">
+                            Get Free Estimate
+                        </button></a></p>
+                </div>
+            </div>
+        </div>
+        <div class="footpanel1">
+            <h4> <a href="end sem project (uid).html"> Back to Top</a></h4>
+        </div>
+
+        <div class="footpanel2">
+            <ul>
+                <b>
+                    <p>Get to Know Us</p>
+                </b>
+                <a href="">Patners</a>
+                <a href="">Blog</a>
+                <a href="">About SweetHome</a>
+                <a href="">Investor Relations</a>
+                <a href="">SweetHome Devices</a>
+                <a href="">Our Retails</a>
+            </ul>
+            <ul>
+                <b>
+                    <p>Make Money with Us</p>
+                </b>
+                <a href=""> Sell Designs on SweetHome</a>
+                <a href=""> Sell on SweetHome Business
+                </a>
+                <a href=""> Sell on Duronto
+                </a>
+                <a href=""> Become an Affiliate
+                </a>
+                <a href=""> Advertise Your Products on SweetHome
+                </a>
+                <a href=""> Self-Publish with Us
+                </a>
+                <a href=""> Host an SweetHome Franchise
+                </a>
+            </ul>
+            <ul>
+                <b>
+                    <p> SweetHome Payment Products
+                    </p>
+                </b>
+                <a href=""> SweetHome Business Card
+                </a>
+                <a href=""> Shop with Points
+                </a>
+                <a href=""> Reload Your Balance
+                </a>
+                <a href=""> SweetHome Currency Converter
+                </a>
+            </ul>
+
+            <ul>
+                <b>
+                    <p> Let Us Help You
+                    </p>
+                </b>
+                <a href=""> SweetHome and COVID-19
+                </a>
+                <a href=""> Your Account
+                </a>
+                <a href=""> Your Orders
+                </a>
+                <a href=""> Shipping Rates & Policies
+                </a>
+                <a href=""> Returns & Replacements
+                </a>
+                <a href=""> Manage Your Content and Devices
+                </a>
+                <a href=""> SweetHome Assistant
+                </a>
+                <a href=""> Help
+                </a>
+            </ul>
+        </div>
+
+        <hr>
+        <footer class="footer" id="footer">
+            <div class="leftk">
+                <div class="left_container">
+                    <div class="contact">
+                        <h3>Contact Us</h3>
+                        <p class="address">
+                            123, XYZ Street,<br>
+                            City - 12345<br>
+                            State, Country
+                        </p>
+                        <p class="address">
+                            Phone: +1 234 567890<br>
+                            Email: info@SweetHome.com
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="right_container">
+                <div class="newsletter">
+                    <h3 class="news">Newsletter</h3>
+                    <form action="#" method="POST">
+                        <input type="email" name="email" id="email" placeholder="Your Email Address">
+                        <button type="submit" class="btn-subscribe">Subscribe</button>
+                    </form>
+                </div>
+                <br>
+                <div class="legal_doc">
+                    <div class="navFooter">
+                        <a href="#">Terms and Conditions</a>
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Help</a>
+                    </div>
+                </div>
+                <br>
+                <p class="copywrite">&copy; 2023 SweetHome. All Rights Reserved.</p>
+            </div>
+
+        </footer>
+        <script>
+            // Function to validate the form
+            function validateForm() {
+                var name = document.getElementById("name").value;
+                var email = document.getElementById("email").value;
+                var mobile = document.getElementById("mobile").value;
+                var pincode = document.getElementById("pincode").value;
+
+                // Check if the name field is empty
+                if (name == "") {
+                    alert("Please enter your name");
+                    return false;
+                }
+
+                // Check if the email field is empty or invalid
+                if (email == "") {
+                    alert("Please enter your email address");
+                    return false;
+                } else {
+                    // Regular expression to validate email format
+                    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(email)) {
+                        alert("Please enter a valid email address");
+                        return false;
+                    }
+                }
+
+                // Check if the mobile field is empty
+                if (mobile == "") {
+                    alert("Please enter your mobile number");
+                    return false;
+                }
+
+                // Check if the pincode field is empty
+
+
+                // Validation successful
+            
+            }
+
+        </script>
+
+
+</body>
+
+
+</html>

@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+    <script>
+        $(document).ready(function () {
+            $('button.btn-outline-success').click(function () {
+                var polaroidDiv = $(this).closest('.mySlides');
+                var productName = polaroidDiv.find('.product-name').text();
+                var imageSrc = polaroidDiv.find('.product-image').attr('src');
+                var data = {
+                    productName: productName,
+                    imageSrc: imageSrc
+                };
+
+                var existingCart = localStorage.getItem('cartItems');
+                var cartItems = existingCart ? JSON.parse(existingCart) : [];
+                cartItems.push(data);
+                localStorage.setItem('cartItems', JSON.stringify(cartItems));
+                alert('Item added to cart!');
+            });
+        });
+    </script>
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+        .nav {
+            overflow: hidden;
+            background-color: #f6f0e0;
+            margin: 0px;
+        }
+
+        .c {
+            background-image: url('https://www.home-designing.com/wp-content/uploads/2014/09/sleek-bedroom-design1.jpeg');
+            width: auto;
+            height: 500px;
+        }
+
+        .nav a {
+            padding-left: 45px;
+            padding-top: 5px;
+            float: left;
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        .nav img {
+            padding: o;
+            margin-top: -1.3rem;
+            margin-left: -2.5rem;
+        }
+
+        #dif {
+            padding-left: 0;
+            padding-top: 0;
+            margin: 0;
+        }
+
+
+        table {
+            margin-left: 400px;
+            background-color: aliceblue;
+            text-align: center;
+            height: 300px;
+            width: 400px;
+        }
+
+        td {
+            padding-left: 10px;
+        }
+
+        table {
+            margin-left: 400px;
+            background-color: aliceblue;
+            text-align: center;
+            height: 300px;
+            width: 400px;
+        }
+
+        td {
+            padding-left: 10px;
+        }
+
+        @keyframes moveForward {
+            0% {
+                transform: translateX(0);
+            }
+
+            50% {
+                transform: translateX(300px);
+            }
+
+            100% {
+                transform: translateX(300px);
+            }
+        }
+
+        .y {
+            animation: moveForward 2s ease forwards;
+        }
+
+        @keyframes moveBackward {
+            0% {
+                transform: translateX(0);
+            }
+
+            50% {
+                transform: translateX(-300px);
+            }
+
+            100% {
+                transform: translateX(-300px);
+            }
+        }
+
+        .b {
+            animation: moveBackward 2s ease-in-out forwards;
+            animation-fill-mode: forwards;
+            animation-delay: 2s;
+        }
+
+        img.w {
+            height: 100px;
+            width: 200px;
+            padding-top: 10px;
+        }
+
+        .bg {
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 700px;
+            animation: changeBackground 10s ease infinite;
+        }
+
+        @keyframes changeBackground {
+
+            0%,
+            25% {
+                background-image: url('https://media.designcafe.com/wp-content/uploads/2021/06/21124026/home-office-furniture-desk-chair-table.jpg');
+            }
+
+            35%,
+            60% {
+                background-image: url('https://media.designcafe.com/wp-content/uploads/2021/06/21124040/home-office-table.jpg');
+            }
+
+            70%,
+            100% {
+                background-image: url('https://media.designcafe.com/wp-content/uploads/2021/06/21124033/home-office-furniture-with-home-office-table.jpg');
+            }
+        }
+
+        .mySlides {
+            display: none;
+        }
+
+        .w3-left,
+        .w3-right,
+        .w3-badge {
+            cursor: pointer;
+        }
+
+        .w3-badge {
+            height: 13px;
+            width: 13px;
+            padding: 0;
+        }
+
+        .wishlist-button {
+            padding: 5px;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+
+        .form-popup {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            z-index: 9;
+            background-color: rgba(0, 0, 0, 0.5);
+            /* Added a semi-transparent background */
+        }
+
+        .form-container {
+            max-width: 300px;
+            padding: 20px;
+            background-color: #fff;
+            position: relative;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            /* Added a box shadow */
+        }
+
+        /* Full-width input fields */
+        .form-container input[type=text],
+        .form-container input[type=password] {
+            width: 100%;
+            padding: 15px;
+            margin: 5px 0 22px 0;
+            border: none;
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+
+
+        /* When the inputs get focus, do something */
+        .form-container input[type=text]:focus,
+        .form-container input[type=password]:focus {
+            background-color: #ddd;
+            outline: none;
+        }
+
+        /* Set a style for the submit/login button */
+        .form-container .btn {
+            background-color: #04AA6D;
+            color: white;
+            padding: 16px 20px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            margin-bottom: 10px;
+            opacity: 0.8;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-container .btn:hover {
+            background-color: #048e5e;
+        }
+
+        /* Add a red background color to the cancel button */
+        .form-container .cancel {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: red;
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-container .cancel:hover {
+            background-color: #ff0000;
+        }
+
+        .form-container .cancel::before,
+        .form-container .cancel::after {
+            content: "";
+            position: absolute;
+            height: 12px;
+            width: 2px;
+            background-color: white;
+        }
+
+        .form-container .cancel::before {
+            transform: rotate(45deg);
+        }
+
+        .form-container .cancel::after {
+            transform: rotate(-45deg);
+        }
+
+        .container {
+            display: inline-flex;
+            align-items: center;
+            margin-right: 20px;
+            cursor: pointer;
+        }
+
+        .container input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .checkmark {
+            position: relative;
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #aaa;
+            border-radius: 50%;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .container input:checked~.checkmark {
+            background-color: #2196F3;
+            border-color: #2196F3;
+        }
+
+        .checkmark::after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+
+        .container input:checked~.checkmark::after {
+            display: block;
+        }
+
+        .container .checkmark::after {
+            top: 5px;
+            left: 5px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: white;
+        }
+
+        .contact {
+            margin: 0px 90px 0px 20px;
+        }
+
+        .footer {
+            background-color: #E4504E;
+            color: #fff;
+            padding: 20px 0;
+            font-size: 14px;
+            display: flex;
+        }
+
+        .footer h3 {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .news {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .footer p {
+            margin-bottom: 10px;
+        }
+
+        .legal_doc a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 10px;
+        }
+
+        .legal_doc a:hover {
+            text-decoration: underline;
+        }
+
+        .right_container {
+            text-align: left;
+            padding-top: 1%;
+            width: 49%;
+            display: inline-block;
+            margin: 0px 90px 0px 20px;
+        }
+
+        .left_container {
+            padding-top: 1%;
+            width: 49%;
+            display: inline-block;
+            margin: 0px 90px 0px 20px;
+        }
+
+        .leftk {
+
+            padding-top: 1%;
+            width: 90%;
+            display: inline-block;
+            margin: 0px 90px 0px 20px;
+        }
+
+        .navFooter {
+            margin: 0px 0px auto auto;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .footpanel1 {
+            background-color: rgb(222, 213, 215);
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.85rem;
+        }
+
+        .footpanel2 {
+            background-color: #E4504E;
+            color: white;
+            height: 300px;
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        .footpanel2 a {
+            color: white;
+        }
+
+        .footpanel2 a:hover {
+            text-decoration: underline;
+        }
+
+
+        ul {
+            margin-top: 20px;
+        }
+
+        ul a {
+            display: block;
+            font-size: 0.85rem;
+            margin-top: 10px;
+            color: #000;
+        }
+
+        .scroll-container {
+            background-color: #ffffff;
+            overflow: auto;
+            white-space: nowrap;
+            padding: 10px;
+        }
+
+        .image-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            /* Adjust the background color and opacity as desired */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .form-popup {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            z-index: 9;
+            background-color: rgba(0, 0, 0, 0.5);
+            /* Added a semi-transparent background */
+        }
+
+        .form-container {
+            max-width: 300px;
+            padding: 20px;
+            background-color: #fff;
+            position: relative;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            /* Added a box shadow */
+        }
+
+        /* Full-width input fields */
+        .form-container input[type=text],
+        .form-container input[type=password] {
+            width: 100%;
+            padding: 15px;
+            margin: 5px 0 22px 0;
+            border: none;
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+
+
+        /* When the inputs get focus, do something */
+        .form-container input[type=text]:focus,
+        .form-container input[type=password]:focus {
+            background-color: #ddd;
+            outline: none;
+        }
+
+        /* Set a style for the submit/login button */
+        .form-container .btn {
+            background-color: #04AA6D;
+            color: white;
+            padding: 16px 20px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            margin-bottom: 10px;
+            opacity: 0.8;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-container .btn:hover {
+            background-color: #048e5e;
+        }
+
+        /* Add a red background color to the cancel button */
+        .form-container .cancel {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: red;
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-container .cancel:hover {
+            background-color: #ff0000;
+        }
+
+        .form-container .cancel::before,
+        .form-container .cancel::after {
+            content: "";
+            position: absolute;
+            height: 12px;
+            width: 2px;
+            background-color: white;
+        }
+
+        .form-container .cancel::before {
+            transform: rotate(45deg);
+        }
+
+        .form-container .cancel::after {
+            transform: rotate(-45deg);
+        }
+
+        .container {
+            display: inline-flex;
+            align-items: center;
+            margin-right: 20px;
+            cursor: pointer;
+        }
+
+        .container input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .checkmark {
+            position: relative;
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #aaa;
+            border-radius: 50%;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .container input:checked~.checkmark {
+            background-color: #2196F3;
+            border-color: #2196F3;
+        }
+
+        .checkmark::after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+
+        .container input:checked~.checkmark::after {
+            display: block;
+        }
+
+        .container .checkmark::after {
+            top: 5px;
+            left: 5px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: white;
+        }
+
+        .image-container:hover .overlay {
+            opacity: 1;
+        }
+
+        .overlay p {
+            color: white;
+            font-size: 18px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg">
+        <div class="nav">
+            <p> <a href="#"> Partner with HomeLane </a></p>
+            <p> <a href="#"> Refer and Earn </a></p>
+            <p> <a href="#"> Join Us</a></p>
+            <p> <a href="#"> Cities </a></p>
+            <p> <a href="#" style="float:right;"> Customer support </a></p>
+            <p> <a href="#" style="float:right;"> Visit Us </a></p>
+            <p> <a href="#" style="float:right;"> Login/Register </a></p>
+        </div>
+
+        <div class="nav">
+            <p id="dif"> <a href="end sem project (uid).html"><img src="db3331c19d2949859833aa3511e7c00e.png" width="100px" height="100px">
+                </a></p>
+            <p> <a href=""> Modular Kitchen </a></p>
+            <p> <a href="p3.html"> Wardrobe </a></p>
+            <p> <a href="b"> Bedroom </a></p>
+            <p> <a href="p2.html"> Living Room </a></p>
+            <p> <a href="projextx.html"> Bathroom </a></p>
+            <p> <a href="color.html">Design Your Vision</a></p>
+            <p> <a href="homeoffice1.html"> Home Office </a></p>
+            <p> <a href="customer service.html"> Customer Service </a></p>
+            <p> <a href="#" style="padding-bottom:5px;padding-left:50px;"></a> <button onclick="openForm()"
+                    style="background-color: rgb(238, 8, 8);padding:7px 7px;color:azure;font-family:Arial, Helvetica, sans-serif;border-radius:5px;;border-color: rgb(238, 8, 8);">
+                    Get Free Estimate
+                </button></a></p>
+        </div>
+    </div>
+
+    <p style="color:red;">Home / Home Interior Design / Furniture / Home Office Furniture<br /></p>
+    <div style="background-color: #F5DEB3; padding: 20px;">
+        <p style="text-align: center; font-family: 'Helvetica', Arial, sans-serif; font-size: 18px; line-height: 1.5;">
+            Wondering how to create the perfect home office design?
+            A well-designed home office should be a harmonious blend of productivity and comfort.
+            <br><br>
+            When designing your home office, consider essential factors such as functionality, comfort, style, and
+            organization.
+            Tailor the space to meet the specific tasks you'll be performing, ensuring you have ample workspace,
+            storage, and technology support.
+            <br><br>
+            Comfort is key, so incorporate features like optimal lighting, adjustable temperature, and ergonomic
+            furniture to enhance your working experience.
+            <br><br>
+            Moreover, let your personal taste and the overall aesthetic of your home shine through in the style you
+            choose for your home office design.
+        </p>
+    </div>
+
+    <div class="w3-content w3-display-container" style="max-width:800px" align="center">
+        <div class="mySlides">
+            <h1 class="product-name">Clean and Bright</h1>
+            <img class="product-image"
+                src="https://media.architecturaldigest.com/photos/58d5504146c96f35ad8972fe/master/w_1920%2Cc_limit/modern-office-library-new-york-city-201107_1000-watermarked.jpg"
+                style="width:100%">
+            <button onclick="addToCart(this)" type="button" class="btn btn-outline-success wishlist-button">Add to
+                Cart</button>
+        </div>
+        <div class="mySlides">
+            <h1 class="product-name">Mid Century Loft</h1>
+            <img class="product-image"
+                src="https://media.architecturaldigest.com/photos/56b524df4ac3d842677b9ac4/master/w_1920%2Cc_limit/home-office-03.jpg"
+                style="width:100%">
+            <button onclick="addToCart(this)" type="button" class="btn btn-outline-success wishlist-button">Add to
+                Cart</button>
+        </div>
+        <div class="mySlides">
+            <h1 class="product-name">Dalla's home office</h1>
+            <img class="product-image"
+                src="https://media.architecturaldigest.com/photos/5751ed1ee8428148369748bd/master/w_1920%2Cc_limit/0716-bridgehampton-steven-gambrel-house-4.jpg"
+                style="width:100%">
+            <button onclick="addToCart(this)" type="button" class="btn btn-outline-success wishlist-button">Add to
+                Cart</button>
+        </div>
+        <div class="mySlides">
+            <h1 class="product-name">Pops of color</h1>
+            <img class="product-image"
+                src="https://media.architecturaldigest.com/photos/56b524e34ac3d842677b9ad0/master/w_1920%2Cc_limit/home-office-07.jpg"
+                style="width:100%">
+            <button onclick="addToCart(this)" type="button" class="btn btn-outline-success wishlist-button">Add to
+                Cart</button>
+        </div>
+        <div class="mySlides">
+            <h1 class="product-name">Monochromatic moves</h1>
+            <img class="product-image"
+                src="https://media.architecturaldigest.com/photos/57d99fbcfe422b3e29b7e5c2/master/w_1920%2Cc_limit/07-1215-AD-HANK04-01.jpg"
+                style="width:100%">
+            <button onclick="addToCart(this)" type="button" class="btn btn-outline-success wishlist-button">Add to
+                Cart</button>
+        </div>
+        <div class="mySlides">
+            <h1 class="product-name">PARISION MAISON BUREAU</h1>
+            <img class="product-image"
+                src="https://media.architecturaldigest.com/photos/56b524de7e88642d152708d9/master/w_1920%2Cc_limit/home-office-02.jpg"
+                style="width:100%">
+            <button onclick="addToCart(this)" type="button" class="btn btn-outline-success wishlist-button">Add to
+                Cart</button>
+        </div>
+        <div class="mySlides">
+            <h1 class="product-name">Brooke Shields's Neoclassical Nook</h1>
+            <img class="product-image"
+                src="https://media.architecturaldigest.com/photos/58d53555c008033592e0ff05/master/w_1920%2Cc_limit/modern-office-library-ingrao-inc-new-york-new-york-201209-2_1000-watermarked.jpg"
+                style="width:100%">
+            <button onclick="addToCart(this)" type="button" class="btn btn-outline-success wishlist-button">Add to
+                Cart</button>
+        </div>
+        <div class="mySlides">
+            <h1 class="product-name">Creative work loft</h1>
+            <img class="product-image"
+                src="https://media.architecturaldigest.com/photos/56b524e04ac3d842677b9ac8/master/w_1920%2Cc_limit/home-office-04.jpg"
+                style="width:100%">
+            <button onclick="addToCart(this)" type="button" class="btn btn-outline-success wishlist-button">Add to
+                Cart</button>
+        </div>
+        <div class="mySlides">
+            <h1 class="product-name">Idyllic Home Office Design on Display in New York Penthouse</h1>
+            <img class="product-image"
+                src="https://media.architecturaldigest.com/photos/57d99fbdfe422b3e29b7e5c3/master/w_1920%2Cc_limit/10-0616-AD-RODR06-01.jpg"
+                style="width:100%">
+            <button style="padding-left:30px;" onclick="addToCart(this)" type="button"
+                class="btn btn-outline-success wishlist-button">Add to Cart</button>
+        </div>
+        <div class="mySlides">
+            <h1 class="product-name">Green and Navy Work space</h1>
+            <img class="product-image" src="" style="width:100%">
+            <button onclick="addToCart(this)" type="button" class="btn btn-outline-success wishlist-button">Add to
+                Cart</button>
+        </div>
+        <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle" style="width:100%"
+            align="center">
+            <div class="w3-left w3-hover-text-khaki" onclick="plusDivs(-1)">&#10094;</div>
+            <div class="w3-right w3-hover-text-khaki" onclick="plusDivs(1)">&#10095;</div>
+            <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(1)"></span>
+            <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(2)"></span>
+            <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(3)"></span>
+            <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(4)"></span>
+            <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(5)"></span>
+            <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(6)"></span>
+            <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(7)"></span>
+            <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(8)"></span>
+            <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(9)"></span>
+            <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(10)"></span>
+
+        </div>
+    </div>
+    <div class="form-popup" id="myForm1">
+        <form action="end sem project (uid).html" class="form-container">
+            <button type="button" class="cancel" onclick="closeForm()"></button>
+            <h1 class="title">Bedroom Type</h1>
+            <label class="container">
+                <input type="radio" checked="checked" name="radio">
+                <span class="checkmark"></span>
+                1BHK
+            </label>
+            <label class="container">
+                <input type="radio" name="radio">
+                <span class="checkmark"></span>
+                2BHK
+            </label>
+            <label class="container">
+                <input type="radio" name="radio">
+                <span class="checkmark"></span>
+                3BHK
+            </label>
+
+            <div class="title">Purpose</div>
+            <label class="container">
+                <input type="radio" checked="checked" name="radio1">
+                <span class="checkmark"></span>
+                Move In
+            </label>
+            <label class="container">
+                <input type="radio" name="radio1">
+                <span class="checkmark"></span>
+                Rent In
+            </label>
+            <label class="container">
+                <input type="radio" name="radio1">
+                <span class="checkmark"></span>
+                Renovate
+            </label>
+
+            <div class="button-container">
+                <button type="submit" class="btn">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function openForm() {
+            document.getElementById("myForm1").style.display = "flex";
+        }
+
+        function closeForm() {
+            document.getElementById("myForm1").style.display = "none";
+        }
+        var slideIndex = 1;
+        showDivs(slideIndex);
+
+        function plusDivs(n) {
+            showDivs(slideIndex += n);
+        }
+
+        function currentDiv(n) {
+            showDivs(slideIndex = n);
+        }
+
+        function showDivs(n) {
+            var i;
+            var x = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("demo");
+            if (n > x.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = x.length }
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" w3-white", "");
+            }
+            x[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " w3-white";
+        }
+        function openForm1() {
+            document.getElementById("myForm").style.display = "flex";
+        }
+
+        function closeForm1() {
+            document.getElementById("myForm").style.display = "none";
+        }
+    </script>
+    <div class="form-popup" id="myForm1">
+        <form action="/action_page.php" class="form-container">
+            <button type="button" class="cancel" onclick="closeForm1()"></button>
+            <h1 class="title">Bedroom Type</h1>
+            <label class="container">
+                <input type="radio" checked="checked" name="radio">
+                <span class="checkmark"></span>
+                1BHK
+            </label>
+            <label class="container">
+                <input type="radio" name="radio">
+                <span class="checkmark"></span>
+                2BHK
+            </label>
+            <label class="container">
+                <input type="radio" name="radio">
+                <span class="checkmark"></span>
+                3BHK
+            </label>
+
+            <div class="title">Purpose</div>
+            <label class="container">
+                <input type="radio" checked="checked" name="radio1">
+                <span class="checkmark"></span>
+                Move In
+            </label>
+            <label class="container">
+                <input type="radio" name="radio1">
+                <span class="checkmark"></span>
+                Rent In
+            </label>
+            <label class="container">
+                <input type="radio" name="radio1">
+                <span class="checkmark"></span>
+                Renovate
+            </label>
+
+            <div class="button-container">
+                <button type="submit" class="btn">Submit</button>
+            </div>
+        </form>
+    </div>
+    <div class="footpanel1">
+        <h4> <a href="homeoffice1.html"> Back to Top</a></h4>
+    </div>
+
+    <div class="footpanel2">
+        <ul>
+            <b>
+                <p>Get to Know Us</p>
+            </b>
+            <a href="">Patners</a>
+            <a href="">Blog</a>
+            <a href="">About SweetHome</a>
+            <a href="">Investor Relations</a>
+            <a href="">SweetHome Devices</a>
+            <a href="">Our Retails</a>
+        </ul>
+        <ul>
+            <b>
+                <p>Make Money with Us</p>
+            </b>
+            <a href=""> Sell Designs on SweetHome</a>
+            <a href=""> Sell on SweetHome Business
+            </a>
+            <a href=""> Sell on Duronto
+            </a>
+            <a href=""> Become an Affiliate
+            </a>
+            <a href=""> Advertise Your Products on SweetHome
+            </a>
+            <a href=""> Self-Publish with Us
+            </a>
+            <a href=""> Host an SweetHome Franchise
+            </a>
+        </ul>
+        <ul>
+            <b>
+                <p> SweetHome Payment Products
+                </p>
+            </b>
+            <a href=""> SweetHome Business Card
+            </a>
+            <a href=""> Shop with Points
+            </a>
+            <a href=""> Reload Your Balance
+            </a>
+            <a href=""> SweetHome Currency Converter
+            </a>
+        </ul>
+
+        <ul>
+            <b>
+                <p> Let Us Help You
+                </p>
+            </b>
+            <a href=""> SweetHome and COVID-19
+            </a>
+            <a href=""> Your Account
+            </a>
+            <a href=""> Your Orders
+            </a>
+            <a href=""> Shipping Rates & Policies
+            </a>
+            <a href=""> Returns & Replacements
+            </a>
+            <a href=""> Manage Your Content and Devices
+            </a>
+            <a href=""> SweetHome Assistant
+            </a>
+            <a href=""> Help
+            </a>
+        </ul>
+    </div>
+
+    <hr>
+    <footer class="footer" id="footer">
+        <div class="leftk">
+            <div class="left_container">
+                <div class="contact">
+                    <h3>Contact Us</h3>
+                    <p class="address">
+                        123, XYZ Street,<br>
+                        City - 12345<br>
+                        State, Country
+                    </p>
+                    <p class="address">
+                        Phone: +1 234 567890<br>
+                        Email: info@SweetHome.com
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="right_container">
+            <div class="newsletter">
+                <h3 class="news">Newsletter</h3>
+                <form action="#" method="POST">
+                    <input type="email" name="email" id="email" placeholder="Your Email Address">
+                    <button type="submit" class="btn-subscribe">Subscribe</button>
+                </form>
+            </div>
+            <br>
+            <div class="legal_doc">
+                <div class="navFooter">
+                    <a href="#">Terms and Conditions</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Help</a>
+                </div>
+            </div>
+            <br>
+            <p class="copywrite">&copy; 2023 SweetHome. All Rights Reserved.</p>
+        </div>
+
+    </footer>
+    <script>
+        // Function to validate the form
+        function validateForm() {
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var mobile = document.getElementById("mobile").value;
+            var pincode = document.getElementById("pincode").value;
+
+            // Check if the name field is empty
+            if (name == "") {
+                alert("Please enter your name");
+                return false;
+            }
+
+            // Check if the email field is empty or invalid
+            if (email == "") {
+                alert("Please enter your email address");
+                return false;
+            } else {
+                // Regular expression to validate email format
+                var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email)) {
+                    alert("Please enter a valid email address");
+                    return false;
+                }
+            }
+
+            // Check if the mobile field is empty
+            if (mobile == "") {
+                alert("Please enter your mobile number");
+                return false;
+            }
+
+            // Check if the pincode field is empty
+
+
+            // Validation successful
+            alert("Form submitted successfully");
+            return true;
+        }
+
+    </script>
+
+
+</body>
+
+
+</html>
